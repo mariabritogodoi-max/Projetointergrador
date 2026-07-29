@@ -1,0 +1,97 @@
+body {
+
+font-family: Arial, sans-serif;
+
+background-color: #ffffff;
+
+color:#222;
+
+font-size:18px;
+
+}
+
+
+header {
+
+background:#0057b8;
+
+color:white;
+
+padding:30px;
+
+text-align:center;
+
+}
+
+
+
+main {
+
+padding:20px;
+
+}
+
+
+
+.card {
+
+border:3px solid #0057b8;
+
+border-radius:15px;
+
+padding:20px;
+
+margin:20px;
+
+box-shadow:5px 5px 10px gray;
+
+}
+
+
+
+button {
+
+font-size:22px;
+
+padding:15px;
+
+margin:10px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+img {
+
+max-width:100%;
+
+border-radius:15px;
+
+}
+
+
+
+.alto-contraste {
+
+background:black;
+
+color:white;
+
+}
+
+
+footer {
+
+background:#0057b8;
+
+color:white;
+
+padding:20px;
+
+text-align:center;
+
+}
