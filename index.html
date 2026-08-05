@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Projeto Integrador - Acessibilidade Digital</title>
+<title>Projeto Integrador - Tecnologia Assistiva</title>
 
 <link 
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
@@ -20,54 +20,36 @@ rel="stylesheet">
 <body>
 
 
-<!-- BARRA DE ACESSIBILIDADE -->
-
 <header>
-
-<div class="barra-acessibilidade" aria-label="Ferramentas de acessibilidade">
-
-<button onclick="aumentarFonte()">
-A+ Aumentar texto
-</button>
-
-<button onclick="diminuirFonte()">
-A- Diminuir texto
-</button>
-
-<button onclick="altoContraste()">
-🌙 Alto contraste
-</button>
-
-<button onclick="lerPagina()">
-🔊 Ler página
-</button>
-
-</div>
-
-
-</header>
-
 
 
 <!-- MENU -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
+
 <div class="container">
 
 
-<a class="navbar-brand" href="#">
-♿ Acessibilidade Digital
+<a class="navbar-brand fw-bold">
+
+♿ Tecnologia Inclusiva
+
 </a>
 
 
+
 <button class="navbar-toggler"
+type="button"
 data-bs-toggle="collapse"
 data-bs-target="#menu">
 
+
 <span class="navbar-toggler-icon"></span>
 
+
 </button>
+
 
 
 
@@ -76,31 +58,131 @@ data-bs-target="#menu">
 
 <ul class="navbar-nav ms-auto">
 
+
 <li class="nav-item">
-<a class="nav-link" href="#inicio">
-Início
+
+<a class="nav-link" href="#flashcards">
+
+Flash Cards
+
 </a>
+
 </li>
 
 
+
 <li class="nav-item">
-<a class="nav-link" href="#problema">
-Problema
+
+<a class="nav-link" href="#robotica">
+
+Robótica
+
 </a>
+
 </li>
 
 
+
 <li class="nav-item">
-<a class="nav-link" href="#solucoes">
-Soluções
+
+<a class="nav-link" href="#fisica">
+
+Física e Tecnociência
+
 </a>
+
 </li>
 
 
-<li class="nav-item">
-<a class="nav-link" href="#avaliacao">
-Avaliação
+
+
+<!-- ACESSIBILIDADE DENTRO DO MENU -->
+
+
+<li class="nav-item dropdown">
+
+
+<a class="nav-link dropdown-toggle"
+href="#"
+data-bs-toggle="dropdown">
+
+♿ Acessibilidade
+
 </a>
+
+
+
+<ul class="dropdown-menu">
+
+
+<li>
+
+<button class="dropdown-item"
+onclick="aumentarFonte()">
+
+🔎 Aumentar texto
+
+</button>
+
+</li>
+
+
+
+<li>
+
+<button class="dropdown-item"
+onclick="diminuirFonte()">
+
+🔍 Diminuir texto
+
+</button>
+
+</li>
+
+
+
+<li>
+
+<button class="dropdown-item"
+onclick="altoContraste()">
+
+🌙 Alto contraste
+
+</button>
+
+</li>
+
+
+
+<li>
+
+<button class="dropdown-item"
+onclick="ouvirTexto()">
+
+🔊 Ouvir textos
+
+</button>
+
+</li>
+
+
+
+<li>
+
+<button class="dropdown-item"
+onclick="pararLeitura()">
+
+⏹ Parar leitura
+
+</button>
+
+</li>
+
+
+
+</ul>
+
+
 </li>
 
 
@@ -109,42 +191,54 @@ Avaliação
 
 </div>
 
+
 </div>
+
 
 </nav>
 
 
+</header>
 
 
 
-<!-- CONTEÚDO PRINCIPAL -->
+
+
 
 <main>
 
 
 
-<!-- INÍCIO -->
+<section class="inicio">
 
-<section id="inicio" class="container text-center">
+
+<div class="container text-center">
+
 
 <h1>
-Tecnologia para Inclusão e Acessibilidade
+
+Projeto Integrador: Acessibilidade Digital
+
 </h1>
 
 
+
 <p>
 
-Este projeto apresenta uma solução digital criada para auxiliar
-pessoas com baixa visão ou cegueira, oferecendo recursos que
-melhoram a autonomia e a experiência na internet.
+Soluções digitais criadas para promover inclusão,
+autonomia e acessibilidade para pessoas com baixa visão
+ou cegueira.
 
 </p>
 
 
-<img 
-src="img/acessibilidade.png"
-class="imagem-principal"
-alt="Pessoa utilizando tecnologia assistiva para acessar recursos digitais">
+
+<img src="img/acessibilidade.png"
+class="imagem"
+alt="Pessoa utilizando tecnologia assistiva para acessar computador">
+
+
+</div>
 
 
 </section>
@@ -153,52 +247,25 @@ alt="Pessoa utilizando tecnologia assistiva para acessar recursos digitais">
 
 
 
-<!-- PROBLEMA -->
 
-<section id="problema" class="container">
+
+<!-- FLASH CARDS -->
+
+
+<section id="flashcards"
+class="container">
+
 
 <h2>
-Identificação do Problema
-</h2>
 
+📚 Flash Cards de Acessibilidade
 
-<p>
-
-Muitas pessoas com deficiência visual encontram dificuldades em
-sites que possuem textos pequenos, pouco contraste, imagens sem
-descrição e ausência de recursos compatíveis com leitores de tela.
-
-</p>
-
-
-<p>
-
-O objetivo deste projeto é desenvolver um ambiente digital mais
-inclusivo, permitindo maior independência aos usuários.
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- FLASHCARDS -->
-
-<section id="solucoes" class="container">
-
-
-<h2 class="text-center">
-Recursos Assistivos
 </h2>
 
 
 
-<div class="row g-4">
+
+<div class="row">
 
 
 
@@ -208,24 +275,20 @@ Recursos Assistivos
 <div class="card">
 
 
-<img 
-src="img/leitor-tela.png"
-class="card-img-top"
-alt="Pessoa utilizando leitor de tela para navegar no computador">
-
-
 <div class="card-body">
 
 
 <h3>
+
 Leitor de Tela
+
 </h3>
 
 
 <p>
 
-Transforma textos escritos em áudio para auxiliar pessoas cegas
-durante a navegação.
+Ferramenta que transforma textos digitais em áudio,
+auxiliando pessoas cegas.
 
 </p>
 
@@ -242,31 +305,25 @@ durante a navegação.
 
 
 
-
 <article class="col-md-4">
 
 
 <div class="card">
 
 
-<img 
-src="img/contraste.png"
-class="card-img-top"
-alt="Tela de computador mostrando alto contraste para baixa visão">
-
-
 <div class="card-body">
 
 
 <h3>
+
 Alto Contraste
+
 </h3>
 
 
 <p>
 
-Melhora a visualização aumentando a diferença entre cores,
-facilitando a leitura.
+Melhora a visualização para pessoas com baixa visão.
 
 </p>
 
@@ -278,7 +335,6 @@ facilitando a leitura.
 
 
 </article>
-
 
 
 
@@ -291,24 +347,19 @@ facilitando a leitura.
 <div class="card">
 
 
-<img 
-src="img/libras.png"
-class="card-img-top"
-alt="Pessoa utilizando comunicação em Língua Brasileira de Sinais">
-
-
 <div class="card-body">
 
 
 <h3>
-Comunicação Inclusiva
+
+Inclusão Digital
+
 </h3>
 
 
 <p>
 
-Recursos como Libras ajudam na comunicação entre diferentes
-usuários.
+Tecnologia criada para garantir acesso igualitário.
 
 </p>
 
@@ -323,7 +374,6 @@ usuários.
 
 
 
-
 </div>
 
 
@@ -334,46 +384,41 @@ usuários.
 
 
 
-<!-- PROTÓTIPO -->
 
-<section class="container">
+
+
+<!-- ROBOTICA -->
+
+
+<section id="robotica"
+class="container">
 
 
 <h2>
-Protótipo de Aplicativo Assistivo
+
+🤖 Robótica Assistiva
+
 </h2>
+
+
+<article>
+
+
+<img src="img/robotica.png"
+class="imagem"
+alt="Robô utilizado como tecnologia assistiva">
 
 
 <p>
 
-A interface foi planejada com botões grandes, cores contrastantes
-e navegação simples para facilitar o uso por idosos e pessoas com
-deficiência visual.
+A robótica pode auxiliar pessoas com deficiência através
+de equipamentos inteligentes, sensores e dispositivos
+que facilitam tarefas diárias.
 
 </p>
 
 
-
-<div class="botoes-exemplo">
-
-
-<button>
-🔊 Ouvir conteúdo
-</button>
-
-
-<button>
-🔎 Aumentar visualização
-</button>
-
-
-<button>
-🌙 Alterar contraste
-</button>
-
-
-</div>
-
+</article>
 
 
 </section>
@@ -384,42 +429,47 @@ deficiência visual.
 
 
 
-<!-- AVALIAÇÃO -->
 
-<section id="avaliacao" class="container">
+
+<!-- FISICA E TECNOCIENCIA -->
+
+
+<section id="fisica"
+class="container">
 
 
 <h2>
-Validação da Rubrica
+
+🔬 Física e Tecnociência
+
 </h2>
 
 
-<ul>
 
-<li>
-HTML semântico aplicado: Excelente
-</li>
+<article>
 
 
-<li>
-Recursos de acessibilidade: Excelente
-</li>
+<img src="img/fisica.png"
+class="imagem"
+alt="Equipamentos tecnológicos utilizados em pesquisas científicas">
 
 
-<li>
-Design responsivo com Bootstrap: Excelente
-</li>
+<p>
+
+A física e a tecnociência contribuem para criar soluções
+como sensores, leitores digitais, próteses inteligentes
+e equipamentos acessíveis.
+
+</p>
 
 
-<li>
-Interações JavaScript: Excelente
-</li>
+</article>
 
-
-</ul>
 
 
 </section>
+
+
 
 
 
@@ -430,11 +480,16 @@ Interações JavaScript: Excelente
 
 
 
+
 <footer>
 
+
 <p>
-Projeto Integrador - 2º Trimestre | Acessibilidade Digital
+
+Projeto Integrador - 2º Trimestre
+
 </p>
+
 
 </footer>
 
@@ -442,13 +497,12 @@ Projeto Integrador - 2º Trimestre | Acessibilidade Digital
 
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-<script src="js/script.js"></script>
+<script src="js/main.js"></script>
 
 
 </body>
+
 
 </html>
