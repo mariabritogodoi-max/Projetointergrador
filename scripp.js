@@ -1,6 +1,10 @@
-// Controle do tamanho da fonte
+// ===============================
+// CONTROLE DE TAMANHO DA FONTE
+// ===============================
+
 
 let tamanhoFonte = 100;
+
 
 
 function aumentarFonte(){
@@ -10,6 +14,7 @@ function aumentarFonte(){
     document.body.style.fontSize = tamanhoFonte + "%";
 
 }
+
 
 
 
@@ -29,7 +34,11 @@ function diminuirFonte(){
 
 
 
-// Alto contraste
+
+// ===============================
+// MODO ALTO CONTRASTE
+// ===============================
+
 
 function altoContraste(){
 
@@ -41,64 +50,53 @@ function altoContraste(){
 
 
 
-// LEITOR DE TELA
 
-let lendo = false;
-
-
-function lerPagina(){
+// ===============================
+// LEITOR DE TEXTO
+// ===============================
 
 
-    if(!('speechSynthesis' in window)){
-
-        alert("Seu navegador não suporta leitura de texto.");
-
-        return;
-
-    }
+let fala;
 
 
 
-    if(lendo){
+function ouvirTexto(){
 
-        speechSynthesis.cancel();
 
-        lendo = false;
+    // Para uma leitura anterior
 
-        return;
-
-    }
+    window.speechSynthesis.cancel();
 
 
 
     let texto = document.querySelector("main").innerText;
 
 
-    let voz = new SpeechSynthesisUtterance(texto);
 
-
-    voz.lang = "pt-BR";
-
-
-    voz.rate = 0.9; // velocidade da fala
-
-
-    voz.pitch = 1; // tom da voz
+    fala = new SpeechSynthesisUtterance(texto);
 
 
 
-    voz.onend = function(){
+    // Idioma português
 
-        lendo = false;
-
-    };
+    fala.lang = "pt-BR";
 
 
 
-    speechSynthesis.speak(voz);
+    // Velocidade da voz
+
+    fala.rate = 0.9;
 
 
-    lendo = true;
+
+    // Volume
+
+    fala.volume = 1;
+
+
+
+    window.speechSynthesis.speak(fala);
+
 
 
 }
@@ -107,16 +105,37 @@ function lerPagina(){
 
 
 
-// Tecla ESC para parar leitura
+
+// ===============================
+// PARAR LEITURA
+// ===============================
+
+
+function pararLeitura(){
+
+
+    window.speechSynthesis.cancel();
+
+
+}
+
+
+
+
+
+
+// ===============================
+// ATALHO DE TECLADO
+// ESC = PARAR VOZ
+// ===============================
+
 
 document.addEventListener("keydown", function(event){
 
 
     if(event.key === "Escape"){
 
-        speechSynthesis.cancel();
-
-        lendo = false;
+        pararLeitura();
 
     }
 
