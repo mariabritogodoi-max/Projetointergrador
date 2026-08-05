@@ -1,11 +1,13 @@
-let tamanho = 100;
+// CONTROLE DO TAMANHO DA FONTE
+
+let tamanhoFonte = 100;
 
 
 function aumentarFonte(){
 
-    tamanho += 10;
+    tamanhoFonte += 10;
 
-    document.body.style.fontSize = tamanho + "%";
+    document.body.style.fontSize = tamanhoFonte + "%";
 
 }
 
@@ -13,40 +15,11 @@ function aumentarFonte(){
 
 function diminuirFonte(){
 
-    tamanho -= 10;
+    if(tamanhoFonte > 70){
 
-    document.body.style.fontSize = tamanho + "%";
+        tamanhoFonte -= 10;
 
-}
-
-
-
-function alternarContraste(){
-
-    document.body.classList.toggle("alto-contraste");
-
-}
-
-
-
-const audio = document.getElementById("musica");
-
-const botaoSom = document.getElementById("btnSom");
-
-
-function toggleAudio(){
-
-    if(audio.paused){
-
-        audio.play();
-
-        botaoSom.innerHTML="🔊 Desligar Som";
-
-    }else{
-
-        audio.pause();
-
-        botaoSom.innerHTML="🎵 Som";
+        document.body.style.fontSize = tamanhoFonte + "%";
 
     }
 
@@ -54,14 +27,77 @@ function toggleAudio(){
 
 
 
-function lerPagina(){
 
-    let texto = document.body.innerText;
 
-    let fala = new SpeechSynthesisUtterance(texto);
+// MODO ALTO CONTRASTE
 
-    fala.lang="pt-BR";
+function altoContraste(){
 
-    speechSynthesis.speak(fala);
+    document.body.classList.toggle("alto-contraste");
 
 }
+
+
+
+
+
+// LEITOR DE TELA
+
+function lerPagina(){
+
+
+    // Verifica se o navegador possui suporte
+
+    if('speechSynthesis' in window){
+
+
+        let texto = document.body.innerText;
+
+
+        let leitura = new SpeechSynthesisUtterance(texto);
+
+
+        leitura.lang = "pt-BR";
+
+
+        leitura.rate = 1;
+
+
+        leitura.pitch = 1;
+
+
+
+        window.speechSynthesis.cancel();
+
+
+        window.speechSynthesis.speak(leitura);
+
+
+
+    } else {
+
+
+        alert("Seu navegador não possui suporte ao leitor de texto.");
+
+    }
+
+
+}
+
+
+
+
+
+// PARAR LEITURA COM TECLA ESC
+
+document.addEventListener("keydown", function(event){
+
+
+    if(event.key === "Escape"){
+
+        window.speechSynthesis.cancel();
+
+    }
+
+
+});
