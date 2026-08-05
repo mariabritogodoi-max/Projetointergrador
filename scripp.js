@@ -1,4 +1,4 @@
-// CONTROLE DO TAMANHO DA FONTE
+// Controle do tamanho da fonte
 
 let tamanhoFonte = 100;
 
@@ -29,7 +29,7 @@ function diminuirFonte(){
 
 
 
-// MODO ALTO CONTRASTE
+// Alto contraste
 
 function altoContraste(){
 
@@ -43,43 +43,62 @@ function altoContraste(){
 
 // LEITOR DE TELA
 
+let lendo = false;
+
+
 function lerPagina(){
 
 
-    // Verifica se o navegador possui suporte
+    if(!('speechSynthesis' in window)){
 
-    if('speechSynthesis' in window){
+        alert("Seu navegador não suporta leitura de texto.");
 
-
-        let texto = document.body.innerText;
-
-
-        let leitura = new SpeechSynthesisUtterance(texto);
-
-
-        leitura.lang = "pt-BR";
-
-
-        leitura.rate = 1;
-
-
-        leitura.pitch = 1;
-
-
-
-        window.speechSynthesis.cancel();
-
-
-        window.speechSynthesis.speak(leitura);
-
-
-
-    } else {
-
-
-        alert("Seu navegador não possui suporte ao leitor de texto.");
+        return;
 
     }
+
+
+
+    if(lendo){
+
+        speechSynthesis.cancel();
+
+        lendo = false;
+
+        return;
+
+    }
+
+
+
+    let texto = document.querySelector("main").innerText;
+
+
+    let voz = new SpeechSynthesisUtterance(texto);
+
+
+    voz.lang = "pt-BR";
+
+
+    voz.rate = 0.9; // velocidade da fala
+
+
+    voz.pitch = 1; // tom da voz
+
+
+
+    voz.onend = function(){
+
+        lendo = false;
+
+    };
+
+
+
+    speechSynthesis.speak(voz);
+
+
+    lendo = true;
 
 
 }
@@ -88,14 +107,16 @@ function lerPagina(){
 
 
 
-// PARAR LEITURA COM TECLA ESC
+// Tecla ESC para parar leitura
 
 document.addEventListener("keydown", function(event){
 
 
     if(event.key === "Escape"){
 
-        window.speechSynthesis.cancel();
+        speechSynthesis.cancel();
+
+        lendo = false;
 
     }
 
