@@ -1,23 +1,17 @@
-// =============================
-// CONTROLE DA FONTE
-// =============================
+// =====================================
+// AUMENTAR E DIMINUIR FONTES
+// =====================================
 
 let tamanhoFonte = 100;
 
 
-function aumentarFonte(){
+function aumentarFonte() {
 
-    if(tamanhoFonte < 180){
+    if (tamanhoFonte < 180) {
 
         tamanhoFonte += 10;
 
-        document.querySelectorAll(
-            "h1, h2, h3, p, a, button"
-        ).forEach(function(elemento){
-
-            elemento.style.fontSize = tamanhoFonte + "%";
-
-        });
+        aplicarFonte();
 
     }
 
@@ -25,19 +19,13 @@ function aumentarFonte(){
 
 
 
-function diminuirFonte(){
+function diminuirFonte() {
 
-    if(tamanhoFonte > 70){
+    if (tamanhoFonte > 70) {
 
         tamanhoFonte -= 10;
 
-        document.querySelectorAll(
-            "h1, h2, h3, p, a, button"
-        ).forEach(function(elemento){
-
-            elemento.style.fontSize = tamanhoFonte + "%";
-
-        });
+        aplicarFonte();
 
     }
 
@@ -45,81 +33,144 @@ function diminuirFonte(){
 
 
 
+function aplicarFonte() {
 
-// =============================
-// ALTO CONTRASTE
-// =============================
+    const textos = document.querySelectorAll(
+        "h1, h2, h3, p, a, button, li"
+    );
 
-function altoContraste(){
 
-    document.body.classList.toggle("alto-contraste");
+    textos.forEach(function(elemento){
+
+        elemento.style.fontSize = tamanhoFonte + "%";
+
+    });
 
 }
 
 
 
 
-// =============================
-// LEITOR DE VOZ
-// =============================
 
-let voz;
+// =====================================
+// ALTO CONTRASTE
+// =====================================
+
+function altoContraste(){
+
+    document.body.classList.toggle(
+        "alto-contraste"
+    );
+
+}
+
+
+
+
+
+
+// =====================================
+// LEITOR DE VOZ
+// =====================================
+
+let leitura = null;
+
 
 
 function lerPagina(){
 
-    // para leitura anterior
+
+    // Para uma leitura anterior
+
     speechSynthesis.cancel();
 
 
-    let texto = document.getElementById("conteudo").innerText;
 
-
-    voz = new SpeechSynthesisUtterance(texto);
-
-
-    voz.lang = "pt-BR";
-
-    voz.rate = 1;
-
-    voz.pitch = 1;
-
-    voz.volume = 1;
+    const conteudo =
+    document.getElementById("conteudo");
 
 
 
-    let listaVozes = speechSynthesis.getVoices();
+    if(!conteudo){
+
+        alert("Conteúdo não encontrado!");
+
+        return;
+
+    }
 
 
-    let vozPT = listaVozes.find(function(v){
 
-        return v.lang.includes("pt");
+    leitura =
+    new SpeechSynthesisUtterance(
+        conteudo.innerText
+    );
+
+
+
+    leitura.lang = "pt-BR";
+
+    leitura.rate = 1;
+
+    leitura.pitch = 1;
+
+    leitura.volume = 1;
+
+
+
+    let vozes =
+    speechSynthesis.getVoices();
+
+
+
+    let vozPortugues =
+    vozes.find(function(voz){
+
+        return voz.lang.includes("pt");
 
     });
 
 
 
-    if(vozPT){
+    if(vozPortugues){
 
-        voz.voice = vozPT;
+        leitura.voice = vozPortugues;
 
     }
 
 
 
-    speechSynthesis.speak(voz);
+    speechSynthesis.speak(leitura);
+
 
 }
 
 
 
 
-// =============================
+
+
+
+// =====================================
 // PARAR LEITURA
-// =============================
+// =====================================
+
 
 function pararLeitura(){
 
     speechSynthesis.cancel();
 
 }
+
+
+
+
+
+
+// Carregar vozes do navegador
+
+window.speechSynthesis.onvoiceschanged = function(){
+
+    speechSynthesis.getVoices();
+
+};
