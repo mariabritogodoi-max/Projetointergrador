@@ -1,574 +1,425 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Inclusivo</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-   <title>Portal Inclusivo</title>
+    <style>
+        body{
+            font-size:18px;
+            transition:0.3s;
+        }
 
+        .alto-contraste{
+            background:#000 !important;
+            color:#fff !important;
+        }
 
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
+        .alto-contraste .card{
+            background:#111;
+            color:#fff;
+            border:1px solid #fff;
+        }
+
+        .alto-contraste .navbar{
+            background:#000 !important;
+        }
+
+        img{
+            max-width:100%;
+        }
+
+        footer{
+            margin-top:60px;
+        }
+    </style>
 </head>
-
 
 <body>
 
+<!-- MENU -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-   <!-- CABEÇALHO -->
-   <header>
+    <div class="container">
 
+        <a class="navbar-brand fw-bold" href="#">
+            Portal Inclusivo
+        </a>
 
-       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal">
 
+            <span class="navbar-toggler-icon"></span>
 
-           <div class="container">
+        </button>
 
+        <div class="collapse navbar-collapse" id="menuPrincipal">
 
-               <a class="navbar-brand fw-bold" href="#">
-                   Portal Inclusivo
-               </a>
+            <ul class="navbar-nav ms-auto">
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio">Início</a>
+                </li>
 
-               <button class="navbar-toggler"
-                   type="button"
-                   data-bs-toggle="collapse"
-                   data-bs-target="#menuPrincipal"
-                   aria-controls="menuPrincipal"
-                   aria-expanded="false"
-                   aria-label="Abrir menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#robotica">Robótica</a>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#fisica">Física</a>
+                </li>
 
-                   <span class="navbar-toggler-icon"></span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#atividades">Atividades</a>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato">Contato</a>
+                </li>
 
-               </button>
+                <li><hr class="text-white"></li>
 
+                <li class="nav-item">
+                    <button class="btn btn-success w-100 my-1" onclick="aumentarFonte()">
+                        A+ Aumentar Fonte
+                    </button>
+                </li>
 
-               <div class="collapse navbar-collapse" id="menuPrincipal">
+                <li class="nav-item">
+                    <button class="btn btn-warning w-100 my-1" onclick="diminuirFonte()">
+                        A- Diminuir Fonte
+                    </button>
+                </li>
 
+                <li class="nav-item">
+                    <button class="btn btn-dark w-100 my-1" onclick="altoContraste()">
+                        Alto Contraste
+                    </button>
+                </li>
 
-                   <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button class="btn btn-info text-white w-100 my-1" onclick="lerPagina()">
+                        🔊 Ouvir Página
+                    </button>
+                </li>
 
+                <li class="nav-item">
+                    <button class="btn btn-danger w-100 my-1" onclick="pararLeitura()">
+                        ⏹ Parar Leitura
+                    </button>
+                </li>
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#inicio">Início</a>
-                       </li>
+            </ul>
 
+        </div>
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#robotica">Robótica</a>
-                       </li>
+    </div>
 
+</nav>
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#fisica">Física e Tecnociências</a>
-                       </li>
+<main id="conteudo">
 
+<!-- INÍCIO -->
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#atividades">Atividades</a>
-                       </li>
+<section id="inicio" class="container mt-5">
 
+<h1 class="text-center">
+Portal Inclusivo de Estudos
+</h1>
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#contato">Contato</a>
-                       </li>
+<p class="lead text-center">
 
+Este portal foi desenvolvido para promover a acessibilidade digital para pessoas com baixa visão ou cegueira.
 
-                       <li>
-                           <hr class="text-white">
-                       </li>
+O site possui aumento de fonte, alto contraste e leitor de voz para facilitar os estudos.
 
+</p>
 
-                       <!-- BOTÕES DE ACESSIBILIDADE -->
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
+class="img-fluid rounded shadow"
+alt="Estudantes utilizando computadores">
 
+</section>
 
-                       <li class="nav-item">
-                           <button class="btn btn-success w-100 my-1"
-                               onclick="aumentarFonte()">
-                               Aumentar Fonte (A+)
-                           </button>
-                       </li>
+<!-- ROBÓTICA -->
 
+<section id="robotica" class="container mt-5">
 
-                       <li class="nav-item">
-                           <button class="btn btn-warning w-100 my-1"
-                               onclick="diminuirFonte()">
-                               Diminuir Fonte (A-)
-                           </button>
-                       </li>
+<h2 class="text-center mb-4">
+Robótica
+</h2>
 
+<div class="row">
 
-                       <li class="nav-item">
-                           <button class="btn btn-dark w-100 my-1"
-                               onclick="altoContraste()">
-                               Alto Contraste
-                           </button>
-                       </li>
+<div class="col-md-4 mb-4">
 
+<div class="card h-100">
 
-                       <li class="nav-item">
-                           <button class="btn btn-info w-100 my-1 text-white"
-                               onclick="lerPagina()">
-                               🔊 Ouvir Página
-                           </button>
-                       </li>
+<div class="card-body">
 
+<h3>Sensores</h3>
 
-                       <li class="nav-item">
-                           <button class="btn btn-danger w-100 my-1"
-                               onclick="pararLeitura()">
-                               ⏹ Parar Leitura
-                           </button>
-                       </li>
+<p>
+Os sensores identificam temperatura, distância, luz e obstáculos.
+</p>
 
+</div>
 
-                   </ul>
+</div>
 
+</div>
 
-               </div>
+<div class="col-md-4 mb-4">
 
+<div class="card h-100">
 
-           </div>
+<div class="card-body">
 
+<h3>Motores</h3>
 
-       </nav>
+<p>
+Os motores transformam energia elétrica em movimento.
+</p>
 
+</div>
 
-   </header>
+</div>
 
+</div>
 
-   <!-- CONTEÚDO PRINCIPAL -->
+<div class="col-md-4 mb-4">
 
+<div class="card h-100">
 
-   <main>
+<div class="card-body">
 
+<h3>Arduino</h3>
 
-       <!-- INÍCIO -->
+<p>
+O Arduino controla projetos de automação e robótica.
+</p>
 
+</div>
 
-       <section id="inicio" class="container mt-5">
+</div>
 
+</div>
 
-           <h1 class="text-center">
-               Portal Inclusivo de Estudos
-           </h1>
+</div>
 
+</section>
 
-           <p class="lead text-center">
+<!-- FÍSICA -->
 
+<section id="fisica" class="container mt-5">
 
-               Este portal foi desenvolvido para promover a acessibilidade
-               digital para pessoas com baixa visão ou cegueira.
+<h2 class="text-center mb-4">
+Física e Tecnociências
+</h2>
 
+<div class="row">
 
-               O site possui recursos de aumento de fonte,
-               alto contraste e leitura automática do conteúdo,
-               tornando o aprendizado mais inclusivo.
+<div class="col-md-4 mb-4">
 
+<div class="card h-100">
 
-           </p>
+<div class="card-body">
 
+<h3>Energia</h3>
 
-           <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
-               class="img-fluid rounded shadow mt-3"
-               alt="Estudantes utilizando computadores durante uma aula de tecnologia."
-               loading="lazy">
+<p>
+A energia movimenta máquinas e equipamentos tecnológicos.
+</p>
 
+</div>
 
-       </section>
+</div>
 
+</div>
 
-       <!-- ROBÓTICA -->
+<div class="col-md-4 mb-4">
 
+<div class="card h-100">
 
-       <section id="robotica" class="container mt-5">
+<div class="card-body">
 
+<h3>Eletricidade</h3>
 
-           <h2 class="text-center mb-4">
-               Robótica
-           </h2>
+<p>
+A corrente elétrica permite o funcionamento dos aparelhos.
+</p>
 
+</div>
 
-           <div class="row">
+</div>
 
+</div>
 
-               <article class="col-md-4 mb-4">
+<div class="col-md-4 mb-4">
 
+<div class="card h-100">
 
-                   <div class="card h-100">
+<div class="card-body">
 
+<h3>Magnetismo</h3>
 
-                       <div class="card-body">
+<p>
+O magnetismo está presente em motores, alto-falantes e diversos equipamentos.
+</p>
 
+</div>
 
-                           <h3>Sensores</h3>
+</div>
 
+</div>
 
-                           <p>
+</div>
 
+</section>
 
-                               Os sensores permitem que um robô identifique
-                               obstáculos, luz, temperatura e distância.
+<!-- FLASHCARDS -->
 
+<section id="atividades" class="container mt-5">
 
-                           </p>
+<h2 class="text-center mb-4">
+Flashcards de Estudo
+</h2>
 
+<div class="row">
 
-                       </div>
+<div class="col-lg-3 col-md-6 mb-4">
 
+<div class="card">
 
-                   </div>
+<div class="card-body">
 
+<h3>Flashcard 1</h3>
 
-               </article>
+<p>O que é um sensor?</p>
 
+</div>
 
-               <article class="col-md-4 mb-4">
+</div>
 
+</div>
 
-                   <div class="card h-100">
+<div class="col-lg-3 col-md-6 mb-4">
 
+<div class="card">
 
-                       <div class="card-body">
+<div class="card-body">
 
+<h3>Flashcard 2</h3>
 
-                           <h3>Motores</h3>
+<p>O que é energia elétrica?</p>
 
+</div>
 
-                           <p>
+</div>
 
+</div>
 
-                               Os motores transformam energia elétrica em
-                               movimento para que o robô execute tarefas.
+<div class="col-lg-3 col-md-6 mb-4">
 
+<div class="card">
 
-                           </p>
+<div class="card-body">
 
+<h3>Flashcard 3</h3>
 
-                       </div>
+<p>Para que serve o Arduino?</p>
 
+</div>
 
-                   </div>
+</div>
 
+</div>
 
-               </article>
+<div class="col-lg-3 col-md-6 mb-4">
 
+<div class="card">
 
-               <article class="col-md-4 mb-4">
+<div class="card-body">
 
+<h3>Flashcard 4</h3>
 
-                   <div class="card h-100">
+<p>Como funciona um motor elétrico?</p>
 
+</div>
 
-                       <div class="card-body">
+</div>
 
+</div>
 
-                           <h3>Arduino</h3>
+</div>
 
+</section>
 
-                           <p>
+<!-- CONTATO -->
 
+<footer id="contato" class="bg-primary text-white text-center p-4">
 
-                               O Arduino é uma plataforma utilizada para
-                               programar e controlar projetos de robótica.
+<h3>Contato</h3>
 
+<p>Email: portalinclusivo@email.com</p>
 
-                           </p>
+<p>Projeto Integrador - Desenvolvimento de Site Acessível</p>
 
+<p>© 2026 Portal Inclusivo</p>
 
-                       </div>
+</footer>
 
+</main>
 
-                   </div>
+<script>
+let tamanho = 18;
 
+function aumentarFonte(){
+    tamanho += 2;
+    document.body.style.fontSize = tamanho + "px";
+}
 
-               </article>
+function diminuirFonte(){
+    if(tamanho > 12){
+        tamanho -= 2;
+        document.body.style.fontSize = tamanho + "px";
+    }
+}
 
+function altoContraste(){
+    document.body.classList.toggle("alto-contraste");
+}
 
-           </div>
+let fala;
 
+function lerPagina(){
 
-       </section>
+    speechSynthesis.cancel();
 
+    let texto = document.getElementById("conteudo").innerText;
 
-       <!-- FÍSICA -->
+    fala = new SpeechSynthesisUtterance(texto);
 
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+    fala.pitch = 1;
+    fala.volume = 1;
 
-       <section id="fisica" class="container mt-5">
+    speechSynthesis.speak(fala);
+}
 
+function pararLeitura(){
+    speechSynthesis.cancel();
+}
+</script>
 
-           <h2 class="text-center mb-4">
-               Física e Tecnociências
-           </h2>
-
-
-           <div class="row">
-
-
-               <article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Energia</h3>
-
-
-                           <p>
-
-
-                               A energia está presente em diversas tecnologias
-                               utilizadas no dia a dia.
-
-
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Eletricidade</h3>
-
-
-                           <p>
-
-
-                               Estudo da corrente elétrica, tensão e
-                               funcionamento de circuitos elétricos.
-
-
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Magnetismo</h3>
-
-
-                           <p>
-
-
-                               Conheça os campos magnéticos e suas aplicações
-                               em equipamentos tecnológicos.
-
-
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-           </div>
-
-
-       </section>
-
-
-       <!-- FLASHCARDS -->
-
-
-       <section id="atividades" class="container mt-5">
-
-
-           <h2 class="text-center mb-4">
-               Flashcards de Estudo
-           </h2>
-
-
-           <div class="row">
-
-
-               <article class="col-lg-3 col-md-6 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Flashcard 1</h3>
-
-
-                           <p>
-                               O que é um sensor?
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-lg-3 col-md-6 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Flashcard 2</h3>
-
-
-                           <p>
-                               O que é energia elétrica?
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-lg-3 col-md-6 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Flashcard 3</h3>
-
-
-                           <p>
-                               Para que serve o Arduino?
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-lg-3 col-md-6 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Flashcard 4</h3>
-
-
-                           <p>
-                               Como funciona um motor elétrico?
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-           </div>
-
-
-       </section>
-
-
-   </main>
-
-
-   <!-- RODAPÉ -->
-
-
-   <footer id="contato" class="bg-primary text-white text-center p-4 mt-5">
-
-
-       <h3>Contato</h3>
-
-
-       <p>Email: portalinclusivo@email.com</p>
-
-
-       <p>
-           Projeto Integrador - Desenvolvimento de Site Acessível
-       </p>
-
-
-       <p>
-           © 2026 Portal Inclusivo
-       </p>
-
-
-   </footer>
-
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-   <script src="script.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
-
 </html>
-
