@@ -1,32 +1,36 @@
-// ==========================
+// ===============================
 // TAMANHO DA FONTE
-// ==========================
+// ===============================
 
-let tamanhoFonte = 18;
+let tamanhoFonte = 100;
 
+// Aumentar fonte
 function aumentarFonte() {
-    tamanhoFonte += 2;
-    document.body.style.fontSize = tamanhoFonte + "px";
-}
-
-function diminuirFonte() {
-    if (tamanhoFonte > 12) {
-        tamanhoFonte -= 2;
-        document.body.style.fontSize = tamanhoFonte + "px";
+    if (tamanhoFonte < 200) {
+        tamanhoFonte += 10;
+        document.body.style.fontSize = tamanhoFonte + "%";
     }
 }
 
-// ==========================
+// Diminuir fonte
+function diminuirFonte() {
+    if (tamanhoFonte > 70) {
+        tamanhoFonte -= 10;
+        document.body.style.fontSize = tamanhoFonte + "%";
+    }
+}
+
+// ===============================
 // ALTO CONTRASTE
-// ==========================
+// ===============================
 
 function altoContraste() {
     document.body.classList.toggle("alto-contraste");
 }
 
-// ==========================
+// ===============================
 // LEITOR DE VOZ
-// ==========================
+// ===============================
 
 let fala = null;
 
@@ -50,9 +54,12 @@ function lerPagina() {
     fala.pitch = 1;
     fala.volume = 1;
 
-    // Seleciona uma voz em português, se disponível
+    // Procura uma voz em português
     const vozes = speechSynthesis.getVoices();
-    const vozPT = vozes.find(voz => voz.lang.includes("pt"));
+
+    const vozPT = vozes.find(function(voz) {
+        return voz.lang.startsWith("pt");
+    });
 
     if (vozPT) {
         fala.voice = vozPT;
@@ -61,11 +68,15 @@ function lerPagina() {
     speechSynthesis.speak(fala);
 }
 
+// Atualiza a lista de vozes quando o navegador carregar
+window.speechSynthesis.onvoiceschanged = function () {
+    speechSynthesis.getVoices();
+};
+
+// ===============================
+// PARAR LEITURA
+// ===============================
+
 function pararLeitura() {
     speechSynthesis.cancel();
 }
-
-// Carrega as vozes disponíveis
-window.speechSynthesis.onvoiceschanged = () => {
-    speechSynthesis.getVoices();
-};
