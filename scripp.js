@@ -1,31 +1,23 @@
-// ===================================
-// AUMENTAR E DIMINUIR FONTE
-// ===================================
+// =============================
+// CONTROLE DA FONTE
+// =============================
 
-let tamanhoFonte = 18;
-
-
-function aumentarFonte() {
-
-    if (tamanhoFonte < 30) {
-
-        tamanhoFonte += 2;
-
-        document.body.style.fontSize = tamanhoFonte + "px";
-
-    }
-
-}
+let tamanhoFonte = 100;
 
 
+function aumentarFonte(){
 
-function diminuirFonte() {
+    if(tamanhoFonte < 180){
 
-    if (tamanhoFonte > 12) {
+        tamanhoFonte += 10;
 
-        tamanhoFonte -= 2;
+        document.querySelectorAll(
+            "h1, h2, h3, p, a, button"
+        ).forEach(function(elemento){
 
-        document.body.style.fontSize = tamanhoFonte + "px";
+            elemento.style.fontSize = tamanhoFonte + "%";
+
+        });
 
     }
 
@@ -33,14 +25,32 @@ function diminuirFonte() {
 
 
 
+function diminuirFonte(){
+
+    if(tamanhoFonte > 70){
+
+        tamanhoFonte -= 10;
+
+        document.querySelectorAll(
+            "h1, h2, h3, p, a, button"
+        ).forEach(function(elemento){
+
+            elemento.style.fontSize = tamanhoFonte + "%";
+
+        });
+
+    }
+
+}
 
 
-// ===================================
+
+
+// =============================
 // ALTO CONTRASTE
-// ===================================
+// =============================
 
-
-function altoContraste() {
+function altoContraste(){
 
     document.body.classList.toggle("alto-contraste");
 
@@ -49,113 +59,67 @@ function altoContraste() {
 
 
 
-
-
-// ===================================
+// =============================
 // LEITOR DE VOZ
-// ===================================
+// =============================
+
+let voz;
 
 
-let leitura;
+function lerPagina(){
 
-
-
-function lerPagina() {
-
-
-    // Para uma leitura anterior
-
-    window.speechSynthesis.cancel();
-
+    // para leitura anterior
+    speechSynthesis.cancel();
 
 
     let texto = document.getElementById("conteudo").innerText;
 
 
-
-    leitura = new SpeechSynthesisUtterance(texto);
-
+    voz = new SpeechSynthesisUtterance(texto);
 
 
-    // Idioma português
+    voz.lang = "pt-BR";
 
-    leitura.lang = "pt-BR";
+    voz.rate = 1;
 
+    voz.pitch = 1;
 
-
-    // Velocidade da voz
-
-    leitura.rate = 1;
+    voz.volume = 1;
 
 
 
-    // Tom da voz
-
-    leitura.pitch = 1;
+    let listaVozes = speechSynthesis.getVoices();
 
 
+    let vozPT = listaVozes.find(function(v){
 
-    // Volume
-
-    leitura.volume = 1;
-
-
-
-    // Escolher voz em português
-
-    let vozes = speechSynthesis.getVoices();
-
-
-
-    let vozPortugues = vozes.find(function(voz){
-
-        return voz.lang.includes("pt");
+        return v.lang.includes("pt");
 
     });
 
 
 
-    if(vozPortugues){
+    if(vozPT){
 
-        leitura.voice = vozPortugues;
+        voz.voice = vozPT;
 
     }
 
 
 
-    speechSynthesis.speak(leitura);
-
+    speechSynthesis.speak(voz);
 
 }
 
 
 
 
-
-
-// ===================================
-// PARAR LEITOR DE VOZ
-// ===================================
-
+// =============================
+// PARAR LEITURA
+// =============================
 
 function pararLeitura(){
 
-    window.speechSynthesis.cancel();
+    speechSynthesis.cancel();
 
 }
-
-
-
-
-
-
-// ===================================
-// CARREGAR VOZES DO NAVEGADOR
-// ===================================
-
-
-window.speechSynthesis.onvoiceschanged = function(){
-
-    speechSynthesis.getVoices();
-
-};
