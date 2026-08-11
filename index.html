@@ -3,18 +3,10 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Portal Inclusivo de Estudos sobre Robótica, Física e Tecnociências."
-    >
-
     <title>Portal Inclusivo de Estudos</title>
-
 
     <!-- Bootstrap -->
     <link
@@ -22,9 +14,174 @@
         rel="stylesheet"
     >
 
+    <style>
 
-    <!-- CSS do projeto -->
-    <link rel="stylesheet" href="./style.css">
+        /* ===============================
+           CONFIGURAÇÕES GERAIS
+        =============================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: 100%;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+
+        /* ===============================
+           CARDS
+        =============================== */
+
+        .card {
+            transition: 0.2s;
+        }
+
+        .card:hover,
+        .card:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+
+        /* ===============================
+           FLASHCARDS
+        =============================== */
+
+        .resposta-flashcard {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+
+            background-color: #e9f7ef;
+            border-left: 5px solid #198754;
+
+            border-radius: 5px;
+        }
+
+        .resposta-flashcard.mostrar {
+            display: block;
+        }
+
+
+        /* ===============================
+           ALTO CONTRASTE
+        =============================== */
+
+        body.alto-contraste {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        body.alto-contraste main,
+        body.alto-contraste section {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        body.alto-contraste .card {
+            background-color: #000 !important;
+            color: #fff !important;
+            border: 2px solid #fff;
+        }
+
+        body.alto-contraste p,
+        body.alto-contraste h1,
+        body.alto-contraste h2,
+        body.alto-contraste h3 {
+            color: #fff !important;
+        }
+
+        body.alto-contraste a {
+            color: #ffff00 !important;
+        }
+
+        body.alto-contraste .resposta-flashcard {
+            background-color: #111;
+            color: #fff;
+            border-color: #ffff00;
+        }
+
+
+        /* ===============================
+           ESCALA DE CINZA
+        =============================== */
+
+        body.escala-cinza {
+            filter: grayscale(100%);
+        }
+
+
+        /* ===============================
+           DESTACAR LINKS
+        =============================== */
+
+        body.destacar-links a {
+            background-color: yellow !important;
+            color: black !important;
+            text-decoration: underline !important;
+            font-weight: bold;
+
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+
+        /* ===============================
+           ESPAÇAMENTO
+        =============================== */
+
+        body.espacamento-texto {
+            line-height: 2.2;
+            letter-spacing: 0.08em;
+            word-spacing: 0.15em;
+        }
+
+        body.espacamento-texto p {
+            margin-bottom: 1.5rem;
+        }
+
+
+        /* ===============================
+           FOCO DO TECLADO
+        =============================== */
+
+        button:focus,
+        a:focus,
+        .card:focus {
+            outline: 4px solid #ffcc00 !important;
+            outline-offset: 3px;
+        }
+
+
+        /* ===============================
+           BOTÕES
+        =============================== */
+
+        .botoes-acessibilidade {
+            padding: 15px 0;
+        }
+
+
+        /* ===============================
+           MOBILE
+        =============================== */
+
+        @media (max-width: 768px) {
+
+            .botoes-acessibilidade .btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -32,986 +189,938 @@
 <body>
 
 
-    <!-- =====================================
-         CABEÇALHO
-    ====================================== -->
-
-    <header>
-
-        <nav
-            class="navbar navbar-expand-lg navbar-dark bg-primary"
-            aria-label="Menu principal"
-        >
-
-            <div class="container">
-
-                <a
-                    class="navbar-brand fw-bold"
-                    href="#inicio"
-                >
-                    Portal Inclusivo
-                </a>
-
-
-                <!-- Botão do menu no celular -->
-
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menuPrincipal"
-                    aria-controls="menuPrincipal"
-                    aria-expanded="false"
-                    aria-label="Abrir menu"
-                >
-
-                    <span class="navbar-toggler-icon"></span>
-
-                </button>
-
-
-                <!-- Menu -->
-
-                <div
-                    class="collapse navbar-collapse"
-                    id="menuPrincipal"
-                >
-
-                    <ul class="navbar-nav ms-auto">
-
-
-                        <li class="nav-item">
-
-                            <a
-                                class="nav-link"
-                                href="#inicio"
-                            >
-                                Início
-                            </a>
-
-                        </li>
-
-
-                        <li class="nav-item">
-
-                            <a
-                                class="nav-link"
-                                href="#robotica"
-                            >
-                                Robótica
-                            </a>
-
-                        </li>
-
-
-                        <li class="nav-item">
-
-                            <a
-                                class="nav-link"
-                                href="#fisica"
-                            >
-                                Física e Tecnociências
-                            </a>
-
-                        </li>
-
-
-                        <li class="nav-item">
-
-                            <a
-                                class="nav-link"
-                                href="#atividades"
-                            >
-                                Atividades
-                            </a>
-
-                        </li>
-
-
-                        <li class="nav-item">
-
-                            <a
-                                class="nav-link"
-                                href="#contato"
-                            >
-                                Contato
-                            </a>
-
-                        </li>
-
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </nav>
-
-
-        <!-- =====================================
-             BARRA DE ACESSIBILIDADE
-        ====================================== -->
-
-        <div class="container-fluid bg-primary pb-3">
-
-            <div class="container">
-
-                <div
-                    class="d-flex flex-wrap gap-2 justify-content-center"
-                    aria-label="Ferramentas de acessibilidade"
-                >
-
-
-                    <!-- AUMENTAR FONTE -->
-
-                    <button
-                        type="button"
-                        class="btn btn-success"
-                        onclick="aumentarFonte()"
-                        aria-label="Aumentar o tamanho da fonte"
-                    >
-                        A+ Aumentar Fonte
-                    </button>
-
-
-                    <!-- DIMINUIR FONTE -->
-
-                    <button
-                        type="button"
-                        class="btn btn-warning"
-                        onclick="diminuirFonte()"
-                        aria-label="Diminuir o tamanho da fonte"
-                    >
-                        A- Diminuir Fonte
-                    </button>
-
-
-                    <!-- ALTO CONTRASTE -->
-
-                    <button
-                        type="button"
-                        class="btn btn-dark"
-                        onclick="altoContraste()"
-                        aria-label="Ativar ou desativar alto contraste"
-                    >
-                        🌓 Alto Contraste
-                    </button>
-
-
-                    <!-- OUVIR PÁGINA -->
-
-                    <button
-                        type="button"
-                        class="btn btn-info"
-                        onclick="lerPagina()"
-                        aria-label="Ouvir o conteúdo da página"
-                    >
-                        🔊 Ouvir Página
-                    </button>
-
-
-                    <!-- PARAR LEITURA -->
-
-                    <button
-                        type="button"
-                        class="btn btn-danger"
-                        onclick="pararLeitura()"
-                        aria-label="Parar a leitura da página"
-                    >
-                        ⏹ Parar Leitura
-                    </button>
-
-
-                    <!-- ESCALA DE CINZA -->
-
-                    <button
-                        type="button"
-                        class="btn btn-secondary"
-                        onclick="escalaCinza()"
-                        aria-label="Ativar ou desativar escala de cinza"
-                    >
-                        ⚫ Escala de Cinza
-                    </button>
-
-
-                    <!-- DESTACAR LINKS -->
-
-                    <button
-                        type="button"
-                        class="btn btn-light"
-                        onclick="destacarLinks()"
-                        aria-label="Destacar os links da página"
-                    >
-                        🔗 Destacar Links
-                    </button>
-
-
-                    <!-- ESPAÇAMENTO -->
-
-                    <button
-                        type="button"
-                        class="btn btn-primary border"
-                        onclick="aumentarEspacamento()"
-                        aria-label="Aumentar o espaçamento dos textos"
-                    >
-                        ↔️ Espaçamento
-                    </button>
-
-
-                    <!-- RESTAURAR -->
-
-                    <button
-                        type="button"
-                        class="btn btn-outline-light"
-                        onclick="restaurarAcessibilidade()"
-                        aria-label="Restaurar configurações de acessibilidade"
-                    >
-                        🔄 Restaurar
-                    </button>
-
-
-                </div>
+<!-- ==========================================
+     MENU
+========================================== -->
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+        <div class="container">
+
+            <a
+                class="navbar-brand fw-bold"
+                href="#inicio"
+            >
+                Portal Inclusivo
+            </a>
+
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal"
+                aria-label="Abrir menu"
+            >
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div
+                class="collapse navbar-collapse"
+                id="menuPrincipal"
+            >
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#robotica">
+                            Robótica
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fisica">
+                            Física
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#atividades">
+                            Atividades
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">
+                            Contato
+                        </a>
+                    </li>
+
+                </ul>
 
             </div>
 
         </div>
 
-    </header>
+    </nav>
 
 
+    <!-- ==========================================
+         ACESSIBILIDADE
+    ========================================== -->
 
-    <!-- =====================================
-         CONTEÚDO PRINCIPAL
-    ====================================== -->
+    <div class="bg-primary">
 
-    <main>
+        <div class="container">
 
-
-        <!-- =====================================
-             INÍCIO
-        ====================================== -->
-
-        <section
-            id="inicio"
-            class="container mt-5"
-            aria-labelledby="titulo-inicio"
-        >
-
-            <h1
-                id="titulo-inicio"
-                class="text-center"
-            >
-                Portal Inclusivo de Estudos
-            </h1>
-
-
-            <p class="lead text-center">
-
-                Bem-vindo ao Portal Inclusivo de Estudos!
-
-                Este site foi desenvolvido para facilitar
-                o acesso ao conhecimento e promover uma
-                experiência de aprendizagem mais acessível
-                para todas as pessoas.
-
-            </p>
-
-
-            <p class="text-center">
-
-                Aqui você encontrará conteúdos sobre
-                <strong>Robótica</strong>,
-                <strong>Física</strong> e
-                <strong>Tecnociências</strong>.
-
-                O portal também possui ferramentas de
-                acessibilidade, como aumento de fonte,
-                diminuição de fonte, alto contraste,
-                leitura automática, escala de cinza,
-                destaque de links e espaçamento de texto.
-
-            </p>
-
-
-            <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
-                class="img-fluid rounded shadow mt-3"
-                alt="Estudantes utilizando computadores durante uma aula de tecnologia"
-                loading="lazy"
+            <div
+                class="botoes-acessibilidade d-flex flex-wrap gap-2 justify-content-center"
             >
 
-        </section>
 
+                <!-- AUMENTAR -->
 
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="aumentarFonte()"
+                >
+                    🔠 A+ Aumentar
+                </button>
 
-        <!-- =====================================
-             ROBÓTICA
-        ====================================== -->
 
-        <section
-            id="robotica"
-            class="container mt-5"
-            aria-labelledby="titulo-robotica"
-        >
+                <!-- DIMINUIR -->
 
-            <h2
-                id="titulo-robotica"
-                class="text-center mb-4"
-            >
-                Robótica
-            </h2>
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    onclick="diminuirFonte()"
+                >
+                    🔡 A- Diminuir
+                </button>
 
 
-            <p class="text-center mb-5">
+                <!-- CONTRASTE -->
 
-                A robótica é uma área da tecnologia que
-                reúne conhecimentos de programação,
-                eletrônica, mecânica e automação.
+                <button
+                    type="button"
+                    class="btn btn-dark"
+                    onclick="altoContraste()"
+                >
+                    🌓 Contraste
+                </button>
 
-                Os robôs podem ser utilizados para
-                realizar tarefas, ajudar pessoas e
-                solucionar diferentes problemas.
 
-            </p>
+                <!-- LER -->
 
+                <button
+                    type="button"
+                    class="btn btn-info"
+                    onclick="lerPagina()"
+                >
+                    🔊 Ouvir
+                </button>
 
-            <div class="row">
 
+                <!-- PARAR -->
 
-                <!-- SENSOR -->
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    onclick="pararLeitura()"
+                >
+                    ⏹ Parar
+                </button>
 
-                <article class="col-md-4 mb-4">
 
-                    <div class="card h-100">
+                <!-- CINZA -->
 
-                        <div class="card-body">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="escalaCinza()"
+                >
+                    ⚫ Cinza
+                </button>
 
-                            <h3>
-                                Sensores
-                            </h3>
 
+                <!-- LINKS -->
 
-                            <p>
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="destacarLinks()"
+                >
+                    🔗 Destacar Links
+                </button>
 
-                                Os sensores são dispositivos
-                                que permitem ao robô perceber
-                                informações do ambiente.
 
-                            </p>
+                <!-- ESPAÇAMENTO -->
 
+                <button
+                    type="button"
+                    class="btn btn-primary border"
+                    onclick="aumentarEspacamento()"
+                >
+                    ↔️ Espaçamento
+                </button>
 
-                            <p>
 
-                                Eles podem identificar
-                                obstáculos, temperatura,
-                                luminosidade, distância,
-                                movimento e outras
-                                características.
+                <!-- RESTAURAR -->
 
-                            </p>
-
-
-                            <p>
-
-                                <strong>Exemplo:</strong>
-
-                                Um sensor ultrassônico pode
-                                ser utilizado para medir a
-                                distância entre um robô e
-                                um obstáculo.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- MOTORES -->
-
-                <article class="col-md-4 mb-4">
-
-                    <div class="card h-100">
-
-                        <div class="card-body">
-
-                            <h3>
-                                Motores
-                            </h3>
-
-
-                            <p>
-
-                                Os motores são responsáveis
-                                por produzir movimento em
-                                muitos projetos de robótica.
-
-                            </p>
-
-
-                            <p>
-
-                                Eles transformam energia
-                                elétrica em movimento
-                                mecânico.
-
-                            </p>
-
-
-                            <p>
-
-                                <strong>Exemplo:</strong>
-
-                                Um motor pode movimentar
-                                as rodas de um robô.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- ARDUINO -->
-
-                <article class="col-md-4 mb-4">
-
-                    <div class="card h-100">
-
-                        <div class="card-body">
-
-                            <h3>
-                                Arduino
-                            </h3>
-
-
-                            <p>
-
-                                O Arduino é uma plataforma
-                                eletrônica muito utilizada
-                                em projetos de robótica.
-
-                            </p>
-
-
-                            <p>
-
-                                Ele permite programar
-                                componentes eletrônicos
-                                utilizando uma placa
-                                controladora.
-
-                            </p>
-
-
-                            <p>
-
-                                <strong>Exemplo:</strong>
-
-                                É possível utilizar Arduino
-                                para controlar sensores,
-                                LEDs e motores.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
+                <button
+                    type="button"
+                    class="btn btn-outline-light"
+                    onclick="restaurarAcessibilidade()"
+                >
+                    🔄 Restaurar
+                </button>
 
             </div>
 
-        </section>
+        </div>
 
+    </div>
 
+</header>
 
-        <!-- =====================================
-             FÍSICA E TECNOCIÊNCIAS
-        ====================================== -->
 
-        <section
-            id="fisica"
-            class="container mt-5"
-            aria-labelledby="titulo-fisica"
-        >
 
-            <h2
-                id="titulo-fisica"
-                class="text-center mb-4"
-            >
-                Física e Tecnociências
-            </h2>
+<!-- ==========================================
+     CONTEÚDO
+========================================== -->
 
+<main>
 
-            <p class="text-center mb-5">
 
-                A Física ajuda a compreender diversos
-                fenômenos presentes na natureza e nas
-                tecnologias utilizadas diariamente.
+    <!-- INÍCIO -->
 
-            </p>
-
-
-            <div class="row">
-
-
-                <!-- ENERGIA -->
-
-                <article class="col-md-4 mb-4">
-
-                    <div class="card h-100">
-
-                        <div class="card-body">
-
-                            <h3>
-                                Energia
-                            </h3>
-
-
-                            <p>
-
-                                Energia é a capacidade de
-                                produzir transformações
-                                ou realizar trabalho.
-
-                            </p>
-
-
-                            <p>
-
-                                Ela está presente em
-                                equipamentos eletrônicos,
-                                veículos, máquinas e
-                                diversas tecnologias.
-
-                            </p>
-
-
-                            <p>
-
-                                Existem diferentes formas
-                                de energia, como elétrica,
-                                térmica, química, mecânica
-                                e luminosa.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- ELETRICIDADE -->
-
-                <article class="col-md-4 mb-4">
-
-                    <div class="card h-100">
-
-                        <div class="card-body">
-
-                            <h3>
-                                Eletricidade
-                            </h3>
-
-
-                            <p>
-
-                                A eletricidade está relacionada
-                                ao movimento e à interação de
-                                cargas elétricas.
-
-                            </p>
-
-
-                            <p>
-
-                                Nos circuitos elétricos,
-                                conceitos como tensão,
-                                corrente e resistência são
-                                importantes para compreender
-                                seu funcionamento.
-
-                            </p>
-
-
-                            <p>
-
-                                A eletricidade está presente
-                                em computadores, celulares,
-                                lâmpadas e máquinas.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- MAGNETISMO -->
-
-                <article class="col-md-4 mb-4">
-
-                    <div class="card h-100">
-
-                        <div class="card-body">
-
-                            <h3>
-                                Magnetismo
-                            </h3>
-
-
-                            <p>
-
-                                O magnetismo é um fenômeno
-                                relacionado aos campos
-                                magnéticos.
-
-                            </p>
-
-
-                            <p>
-
-                                Os ímãs possuem polos
-                                magnéticos e podem exercer
-                                forças de atração ou
-                                repulsão.
-
-                            </p>
-
-
-                            <p>
-
-                                O magnetismo é utilizado
-                                em motores, alto-falantes,
-                                geradores e diversos
-                                equipamentos tecnológicos.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             ATIVIDADES
-        ====================================== -->
-
-        <section
-            id="atividades"
-            class="container mt-5"
-            aria-labelledby="titulo-atividades"
-        >
-
-            <h2
-                id="titulo-atividades"
-                class="text-center mb-4"
-            >
-                Atividades e Flashcards
-            </h2>
-
-
-            <p class="text-center mb-5">
-
-                Clique nos flashcards abaixo para
-                visualizar as respostas.
-
-                Você também pode utilizar a tecla
-                <strong>Enter</strong> ou
-                <strong>Espaço</strong>.
-
-            </p>
-
-
-            <div class="row">
-
-
-                <!-- FLASHCARD 1 -->
-
-                <article class="col-lg-3 col-md-6 mb-4">
-
-                    <div
-                        class="card h-100"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Flashcard 1. O que é um sensor?"
-                        onclick="mostrarResposta(this)"
-                        onkeydown="
-                            if(event.key === 'Enter' || event.key === ' ')
-                            mostrarResposta(this)
-                        "
-                    >
-
-                        <div class="card-body">
-
-                            <h3>
-                                Flashcard 1
-                            </h3>
-
-
-                            <p>
-
-                                <strong>
-                                    O que é um sensor?
-                                </strong>
-
-                            </p>
-
-
-                            <div class="resposta-flashcard">
-
-                                <strong>Resposta:</strong>
-
-                                Sensor é um dispositivo
-                                capaz de detectar
-                                informações do ambiente,
-                                como luz, temperatura,
-                                distância e movimento.
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- FLASHCARD 2 -->
-
-                <article class="col-lg-3 col-md-6 mb-4">
-
-                    <div
-                        class="card h-100"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Flashcard 2. O que é energia elétrica?"
-                        onclick="mostrarResposta(this)"
-                        onkeydown="
-                            if(event.key === 'Enter' || event.key === ' ')
-                            mostrarResposta(this)
-                        "
-                    >
-
-                        <div class="card-body">
-
-                            <h3>
-                                Flashcard 2
-                            </h3>
-
-
-                            <p>
-
-                                <strong>
-                                    O que é energia elétrica?
-                                </strong>
-
-                            </p>
-
-
-                            <div class="resposta-flashcard">
-
-                                <strong>Resposta:</strong>
-
-                                É a energia associada
-                                ao movimento de cargas
-                                elétricas e utilizada para
-                                alimentar diversos
-                                equipamentos.
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- FLASHCARD 3 -->
-
-                <article class="col-lg-3 col-md-6 mb-4">
-
-                    <div
-                        class="card h-100"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Flashcard 3. Para que serve o Arduino?"
-                        onclick="mostrarResposta(this)"
-                        onkeydown="
-                            if(event.key === 'Enter' || event.key === ' ')
-                            mostrarResposta(this)
-                        "
-                    >
-
-                        <div class="card-body">
-
-                            <h3>
-                                Flashcard 3
-                            </h3>
-
-
-                            <p>
-
-                                <strong>
-                                    Para que serve o Arduino?
-                                </strong>
-
-                            </p>
-
-
-                            <div class="resposta-flashcard">
-
-                                <strong>Resposta:</strong>
-
-                                O Arduino é utilizado
-                                para programar e controlar
-                                projetos eletrônicos,
-                                automação e robótica.
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- FLASHCARD 4 -->
-
-                <article class="col-lg-3 col-md-6 mb-4">
-
-                    <div
-                        class="card h-100"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Flashcard 4. Como funciona um motor elétrico?"
-                        onclick="mostrarResposta(this)"
-                        onkeydown="
-                            if(event.key === 'Enter' || event.key === ' ')
-                            mostrarResposta(this)
-                        "
-                    >
-
-                        <div class="card-body">
-
-                            <h3>
-                                Flashcard 4
-                            </h3>
-
-
-                            <p>
-
-                                <strong>
-                                    Como funciona um motor elétrico?
-                                </strong>
-
-                            </p>
-
-
-                            <div class="resposta-flashcard">
-
-                                <strong>Resposta:</strong>
-
-                                Um motor elétrico transforma
-                                energia elétrica em energia
-                                mecânica, produzindo
-                                movimento.
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =====================================
-         RODAPÉ
-    ====================================== -->
-
-    <footer
-        id="contato"
-        class="bg-primary text-white text-center p-4 mt-5"
+    <section
+        id="inicio"
+        class="container mt-5"
     >
 
-        <h2>
-            Contato
+        <h1 class="text-center">
+            Portal Inclusivo de Estudos
+        </h1>
+
+
+        <p class="lead text-center">
+
+            Bem-vindo ao Portal Inclusivo de Estudos!
+
+            Este site foi desenvolvido para facilitar
+            o acesso ao conhecimento e promover uma
+            experiência de aprendizagem acessível
+            para todas as pessoas.
+
+        </p>
+
+
+        <p class="text-center">
+
+            Aqui você encontrará conteúdos sobre
+            <strong>Robótica</strong>,
+            <strong>Física</strong> e
+            <strong>Tecnociências</strong>.
+
+        </p>
+
+
+        <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
+            class="img-fluid rounded shadow mt-3"
+            alt="Estudantes utilizando computadores durante uma aula de tecnologia"
+        >
+
+    </section>
+
+
+
+    <!-- ROBÓTICA -->
+
+    <section
+        id="robotica"
+        class="container mt-5"
+    >
+
+        <h2 class="text-center mb-4">
+            Robótica
         </h2>
 
 
-        <p>
-            Email: portalinclusivo@email.com
-        </p>
+        <p class="text-center mb-5">
 
-
-        <p>
-
-            Projeto Integrador -
-            Desenvolvimento de Site Acessível
+            A robótica reúne conhecimentos de
+            programação, eletrônica, mecânica
+            e automação.
 
         </p>
 
 
-        <p>
-            &copy; 2026 Portal Inclusivo
+        <div class="row">
+
+
+            <article class="col-md-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3>Sensores</h3>
+
+                        <p>
+                            Os sensores permitem ao robô
+                            perceber informações do ambiente.
+                        </p>
+
+                        <p>
+                            Eles podem identificar obstáculos,
+                            temperatura, luminosidade,
+                            distância e movimento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="col-md-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3>Motores</h3>
+
+                        <p>
+                            Os motores são responsáveis
+                            por produzir movimento.
+                        </p>
+
+                        <p>
+                            Eles transformam energia elétrica
+                            em movimento mecânico.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="col-md-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3>Arduino</h3>
+
+                        <p>
+                            O Arduino é uma plataforma
+                            eletrônica utilizada em projetos.
+                        </p>
+
+                        <p>
+                            Ele pode controlar sensores,
+                            LEDs e motores.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FÍSICA -->
+
+    <section
+        id="fisica"
+        class="container mt-5"
+    >
+
+        <h2 class="text-center mb-4">
+            Física e Tecnociências
+        </h2>
+
+
+        <p class="text-center mb-5">
+
+            A Física ajuda a compreender fenômenos
+            presentes na natureza e nas tecnologias.
+
         </p>
 
-    </footer>
+
+        <div class="row">
+
+
+            <article class="col-md-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3>Energia</h3>
+
+                        <p>
+                            Energia é a capacidade de
+                            produzir transformações.
+                        </p>
+
+                        <p>
+                            Existem diferentes formas de
+                            energia, como elétrica, térmica,
+                            química e mecânica.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="col-md-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3>Eletricidade</h3>
+
+                        <p>
+                            A eletricidade está relacionada
+                            ao movimento e interação de
+                            cargas elétricas.
+                        </p>
+
+                        <p>
+                            Ela está presente em computadores,
+                            celulares, lâmpadas e máquinas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="col-md-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3>Magnetismo</h3>
+
+                        <p>
+                            O magnetismo está relacionado
+                            aos campos magnéticos.
+                        </p>
+
+                        <p>
+                            É utilizado em motores,
+                            alto-falantes e geradores.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
 
 
 
-    <!-- =====================================
-         BOOTSTRAP JAVASCRIPT
-    ====================================== -->
+    <!-- ATIVIDADES -->
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <section
+        id="atividades"
+        class="container mt-5"
+    >
+
+        <h2 class="text-center mb-4">
+            Atividades e Flashcards
+        </h2>
 
 
-    <!-- =====================================
-         JAVASCRIPT DO PROJETO
-    ====================================== -->
+        <p class="text-center mb-5">
 
-    <script src="./script.js"></script>
+            Clique nos cartões para visualizar
+            as respostas.
+
+        </p>
+
+
+        <div class="row">
+
+
+            <!-- FLASHCARD 1 -->
+
+            <article class="col-lg-3 col-md-6 mb-4">
+
+                <div
+                    class="card h-100"
+                    tabindex="0"
+                    role="button"
+                    onclick="mostrarResposta(this)"
+                    onkeydown="tecladoFlashcard(event, this)"
+                >
+
+                    <div class="card-body">
+
+                        <h3>
+                            Flashcard 1
+                        </h3>
+
+                        <p>
+                            <strong>
+                                O que é um sensor?
+                            </strong>
+                        </p>
+
+                        <div class="resposta-flashcard">
+
+                            <strong>Resposta:</strong>
+
+                            Sensor é um dispositivo capaz
+                            de detectar informações do
+                            ambiente, como luz, temperatura,
+                            distância e movimento.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- FLASHCARD 2 -->
+
+            <article class="col-lg-3 col-md-6 mb-4">
+
+                <div
+                    class="card h-100"
+                    tabindex="0"
+                    role="button"
+                    onclick="mostrarResposta(this)"
+                    onkeydown="tecladoFlashcard(event, this)"
+                >
+
+                    <div class="card-body">
+
+                        <h3>
+                            Flashcard 2
+                        </h3>
+
+                        <p>
+                            <strong>
+                                O que é energia elétrica?
+                            </strong>
+                        </p>
+
+                        <div class="resposta-flashcard">
+
+                            <strong>Resposta:</strong>
+
+                            É a energia associada ao
+                            movimento de cargas elétricas
+                            e utilizada para alimentar
+                            diversos equipamentos.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- FLASHCARD 3 -->
+
+            <article class="col-lg-3 col-md-6 mb-4">
+
+                <div
+                    class="card h-100"
+                    tabindex="0"
+                    role="button"
+                    onclick="mostrarResposta(this)"
+                    onkeydown="tecladoFlashcard(event, this)"
+                >
+
+                    <div class="card-body">
+
+                        <h3>
+                            Flashcard 3
+                        </h3>
+
+                        <p>
+                            <strong>
+                                Para que serve o Arduino?
+                            </strong>
+                        </p>
+
+                        <div class="resposta-flashcard">
+
+                            <strong>Resposta:</strong>
+
+                            O Arduino é utilizado para
+                            programar e controlar projetos
+                            eletrônicos, automação e robótica.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- FLASHCARD 4 -->
+
+            <article class="col-lg-3 col-md-6 mb-4">
+
+                <div
+                    class="card h-100"
+                    tabindex="0"
+                    role="button"
+                    onclick="mostrarResposta(this)"
+                    onkeydown="tecladoFlashcard(event, this)"
+                >
+
+                    <div class="card-body">
+
+                        <h3>
+                            Flashcard 4
+                        </h3>
+
+                        <p>
+                            <strong>
+                                Como funciona um motor elétrico?
+                            </strong>
+                        </p>
+
+                        <div class="resposta-flashcard">
+
+                            <strong>Resposta:</strong>
+
+                            Um motor elétrico transforma
+                            energia elétrica em energia
+                            mecânica, produzindo movimento.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     RODAPÉ
+========================================== -->
+
+<footer
+    id="contato"
+    class="bg-primary text-white text-center p-4 mt-5"
+>
+
+    <h2>
+        Contato
+    </h2>
+
+    <p>
+        Email: portalinclusivo@email.com
+    </p>
+
+    <p>
+        Projeto Integrador -
+        Desenvolvimento de Site Acessível
+    </p>
+
+    <p>
+        &copy; 2026 Portal Inclusivo
+    </p>
+
+</footer>
+
+
+
+<!-- Bootstrap -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+    /* =====================================
+       VARIÁVEIS
+    ===================================== */
+
+    let tamanhoFonte = 100;
+
+
+
+    /* =====================================
+       AUMENTAR FONTE
+    ===================================== */
+
+    function aumentarFonte() {
+
+        if (tamanhoFonte < 180) {
+
+            tamanhoFonte += 10;
+
+            document.body.style.fontSize =
+                tamanhoFonte + "%";
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       DIMINUIR FONTE
+    ===================================== */
+
+    function diminuirFonte() {
+
+        if (tamanhoFonte > 70) {
+
+            tamanhoFonte -= 10;
+
+            document.body.style.fontSize =
+                tamanhoFonte + "%";
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       ALTO CONTRASTE
+    ===================================== */
+
+    function altoContraste() {
+
+        document.body.classList.toggle(
+            "alto-contraste"
+        );
+
+    }
+
+
+
+    /* =====================================
+       ESCALA DE CINZA
+    ===================================== */
+
+    function escalaCinza() {
+
+        document.body.classList.toggle(
+            "escala-cinza"
+        );
+
+    }
+
+
+
+    /* =====================================
+       DESTACAR LINKS
+    ===================================== */
+
+    function destacarLinks() {
+
+        document.body.classList.toggle(
+            "destacar-links"
+        );
+
+    }
+
+
+
+    /* =====================================
+       ESPAÇAMENTO
+    ===================================== */
+
+    function aumentarEspacamento() {
+
+        document.body.classList.toggle(
+            "espacamento-texto"
+        );
+
+    }
+
+
+
+    /* =====================================
+       LEITURA DA PÁGINA
+    ===================================== */
+
+    function lerPagina() {
+
+        // Para qualquer leitura anterior
+        speechSynthesis.cancel();
+
+
+        // Pega somente o conteúdo principal
+        const texto =
+            document.querySelector("main").innerText;
+
+
+        // Cria a fala
+        const fala =
+            new SpeechSynthesisUtterance(texto);
+
+
+        // Define português do Brasil
+        fala.lang = "pt-BR";
+
+
+        // Velocidade da leitura
+        fala.rate = 0.9;
+
+
+        // Tom da voz
+        fala.pitch = 1;
+
+
+        // Volume
+        fala.volume = 1;
+
+
+        // Começa a leitura
+        speechSynthesis.speak(fala);
+
+    }
+
+
+
+    /* =====================================
+       PARAR LEITURA
+    ===================================== */
+
+    function pararLeitura() {
+
+        speechSynthesis.cancel();
+
+    }
+
+
+
+    /* =====================================
+       FLASHCARD
+    ===================================== */
+
+    function mostrarResposta(card) {
+
+        const resposta =
+            card.querySelector(
+                ".resposta-flashcard"
+            );
+
+
+        if (resposta) {
+
+            resposta.classList.toggle(
+                "mostrar"
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       TECLADO DO FLASHCARD
+    ===================================== */
+
+    function tecladoFlashcard(event, card) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            mostrarResposta(card);
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       RESTAURAR
+    ===================================== */
+
+    function restaurarAcessibilidade() {
+
+        // Volta fonte para 100%
+        tamanhoFonte = 100;
+
+        document.body.style.fontSize = "100%";
+
+
+        // Remove todos os modos
+        document.body.classList.remove(
+            "alto-contraste",
+            "escala-cinza",
+            "destacar-links",
+            "espacamento-texto"
+        );
+
+
+        // Para leitura
+        speechSynthesis.cancel();
+
+    }
+
+</script>
 
 
 </body>
