@@ -1,22 +1,7 @@
 ```css
-/* ==================================
-   PORTAL INCLUSIVO
-   style.css
-   ================================== */
-
-/* ================================
-   RESET
-   ================================ */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ================================
-   CONFIGURAÇÃO GERAL
-   ================================ */
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
 
 html {
     scroll-behavior: smooth;
@@ -24,216 +9,220 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #212529;
+    margin: 0;
+    padding: 0;
 }
 
-/* ================================
-   NAVBAR
-   ================================ */
+
+/* =========================================
+   CABEÇALHO
+========================================= */
 
 .navbar {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    padding: 12px 0;
 }
 
 .navbar-brand {
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .nav-link {
-    font-size: 1.05rem;
-    transition: 0.3s ease;
+    font-weight: 500;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
-}
 
-/* ================================
-   SEÇÕES
-   ================================ */
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+
+main {
+    min-height: 70vh;
+}
 
 section {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    scroll-margin-top: 80px;
 }
 
 h1 {
-    color: #0d6efd;
     font-weight: bold;
-    font-size: 2.5rem;
-    margin-bottom: 25px;
+    color: #0d6efd;
+    margin-bottom: 20px;
 }
 
 h2 {
-    color: #0d6efd;
     font-weight: bold;
-    font-size: 2rem;
-    margin-bottom: 30px;
+    color: #0d6efd;
 }
 
 h3 {
-    color: #0d6efd;
-    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-p {
-    font-size: 1rem;
+
+/* =========================================
+   IMAGEM PRINCIPAL
+========================================= */
+
+#inicio img {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
 }
 
-/* ================================
-   IMAGENS
-   ================================ */
 
-img {
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    max-width: 100%;
-}
-
-/* ================================
+/* =========================================
    CARDS
-   ================================ */
+========================================= */
 
 .card {
-    border: none;
-    border-radius: 18px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-    transition: 0.3s ease;
+    height: 100%;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card-body {
-    text-align: center;
     padding: 25px;
 }
 
+.card h3 {
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
 .card p {
-    margin-top: 15px;
+    margin-bottom: 0;
 }
 
-/* ================================
-   BOTÕES
-   ================================ */
 
-.btn {
-    margin: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    min-height: 48px;
-    border-radius: 10px;
-}
+/* =========================================
+   BOTÕES DE ACESSIBILIDADE
+========================================= */
 
 button {
-    cursor: pointer;
+    font-weight: bold;
 }
 
-/* ================================
-   FOOTER
-   ================================ */
+.navbar button {
+    border: 2px solid transparent;
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
 
 footer {
-    margin-top: 80px;
+    margin-top: 50px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
 }
 
 footer p {
     margin-bottom: 5px;
 }
 
-/* ================================
+
+/* =========================================
    ALTO CONTRASTE
-   ================================ */
+========================================= */
 
-.altoContraste {
-    background: #000;
-    color: #fff;
+.alto-contraste {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-.altoContraste h1,
-.altoContraste h2,
-.altoContraste h3 {
-    color: yellow;
+.alto-contraste main {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-.altoContraste p {
-    color: #fff;
+.alto-contraste section {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-.altoContraste .card {
-    background: #222;
-    color: #fff;
-    border: 2px solid yellow;
+.alto-contraste .card {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
 }
 
-.altoContraste .navbar {
-    background: #000 !important;
+.alto-contraste .card-body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-.altoContraste footer {
-    background: #000 !important;
+.alto-contraste h1,
+.alto-contraste h2,
+.alto-contraste h3,
+.alto-contraste p {
+    color: #ffffff !important;
 }
 
-.altoContraste .nav-link {
-    color: #fff !important;
+.alto-contraste .lead {
+    color: #ffffff !important;
 }
 
-.altoContraste .btn-dark {
-    border: 2px solid yellow;
+.alto-contraste a {
+    color: #ffff00 !important;
 }
 
-.altoContraste img {
-    border: 3px solid yellow;
+.alto-contraste footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-top: 2px solid #ffffff;
 }
 
-/* ================================
-   FOCO PARA ACESSIBILIDADE
-   ================================ */
+.alto-contraste footer h3,
+.alto-contraste footer p {
+    color: #ffffff !important;
+}
 
-button:focus,
-a:focus {
-    outline: 4px solid orange;
+
+/* =========================================
+   ACESSIBILIDADE PELO TECLADO
+========================================= */
+
+a:focus,
+button:focus {
+    outline: 3px solid #ff00ff;
     outline-offset: 3px;
 }
 
-/* ================================
-   ANIMAÇÕES SUAVES
-   ================================ */
 
-button,
-a,
-.card {
-    transition: 0.3s ease;
-}
-
-/* ================================
-   RESPONSIVIDADE - TABLET
-   ================================ */
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
 
 @media (max-width: 991px) {
 
     .navbar-nav {
-        text-align: center;
+        padding-top: 15px;
     }
 
-    .navbar .btn {
+    .navbar-nav .nav-item {
+        margin-bottom: 3px;
+    }
+
+    .navbar-nav button {
         width: 100%;
-        margin-bottom: 8px;
     }
 }
 
-/* ================================
-   RESPONSIVIDADE - CELULAR
-   ================================ */
 
 @media (max-width: 768px) {
-
-    body {
-        font-size: 17px;
-    }
 
     h1 {
         font-size: 2rem;
@@ -243,44 +232,53 @@ a,
         font-size: 1.7rem;
     }
 
-    h3 {
-        font-size: 1.2rem;
+    #inicio img {
+        max-height: 300px;
     }
 
-    .card {
-        margin-bottom: 20px;
+    .card-body {
+        padding: 20px;
     }
 }
 
-/* ================================
-   CELULARES PEQUENOS
-   ================================ */
 
 @media (max-width: 576px) {
 
-    body {
-        font-size: 16px;
-    }
-
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     h2 {
         font-size: 1.5rem;
     }
 
-    .btn {
-        font-size: 15px;
-        min-height: 50px;
+    .lead {
+        font-size: 1rem;
+    }
+
+    #inicio img {
+        max-height: 250px;
     }
 }
 
-/* ================================
-   MELHORIA PARA LEITURA
-   ================================ */
 
-::selection {
-    background: #0d6efd;
-    color: #fff;
+/* =========================================
+   ANIMAÇÃO SUAVE DOS CARDS
+========================================= */
+
+.card {
+    animation: aparecer 0.5s ease-in-out;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
