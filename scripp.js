@@ -1,1420 +1,305 @@
-/* ==================================
-  PORTAL INCLUSIVO
-  style.css - PARTE 1
-================================== */
+```javascript
+/* =========================================
+   PORTAL INCLUSIVO - SCRIPT.JS
+========================================= */
 
 
+/* =========================================
+   CONTROLE DO TAMANHO DA FONTE
+========================================= */
 
+let tamanhoFonte = 100;
 
-/* RESET */
+function aumentarFonte() {
 
+    if (tamanhoFonte < 150) {
+        tamanhoFonte += 10;
+        document.documentElement.style.fontSize = tamanhoFonte + "%";
+    }
 
-* {
-
-
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-
-
-}
-
-
-
-
-/* CONFIGURAÇÃO GERAL */
-
-
-html {
-
-
-   scroll-behavior: smooth;
-
-
-}
-
-
-
-
-bbody {
-
-
-   font-family: Arial, Helvetica, sans-serif;
-
-
-   font-size: 1rem;
-
-
-   line-height: 1.8;
-
-
-}
-
-
-
-
-/* ================================
-  NAVBAR
-================================ */
-
-
-
-
-.navbar {
-
-
-   box-shadow: 0 3px 10px rgba(0,0,0,.25);
-
-
-}
-
-
-
-
-.navbar-brand {
-
-
-   font-size: 1.6rem;
-
-
-   font-weight: bold;
-
-
-}
-
-
-
-
-.nav-link {
-
-
-   font-size: 1.05rem;
-
-
-   transition: .3s;
-
-
-}
-
-
-
-
-.nav-link:hover {
-
-
-   text-decoration: underline;
-
-
-}
-
-
-
-
-/* ================================
-  SEÇÕES
-================================ */
-
-
-
-
-section {
-
-
-   margin-top: 70px;
-
-
-   margin-bottom: 70px;
-
-
-}
-
-
-
-
-h1 {
-
-
-   color: #0d6efd;
-
-
-   font-weight: bold;
-
-
-   font-size: 2.5rem;
-
-
-   margin-bottom: 25px;
-
-
-}
-
-
-h2 {
-
-
-   color: #0d6efd;
-
-
-   font-weight: bold;
-
-
-   font-size: 2rem;
-
-
-   margin-bottom: 30px;
-
-
-}
-
-
-
-
-h3 {
-
-
-   color: #0d6efd;
-
-
-   font-size: 1.3rem;
-
-
-}
-
-
-
-
-p {
-
-
-   font-size: 1rem;
-
-
-}
-
-
-
-
-/* ================================
-  IMAGEM
-================================ */
-
-
-
-
-img {
-
-
-   border-radius: 15px;
-
-
-   box-shadow: 0 5px 15px rgba(0,0,0,.25);
-
-
-   max-width: 100%;
-
-
-}
-
-
-
-
-/* ================================
-  CARDS
-================================ */
-
-
-
-
-.card {
-
-
-   border: none;
-
-
-   border-radius: 18px;
-
-
-   box-shadow: 0 8px 18px rgba(0,0,0,.15);
-
-
-   transition: .3s;
-
-
-}
-
-
-
-
-.card:hover {
-
-
-   transform: translateY(-8px);
-
-
-}
-
-
-
-
-.card-body {
-
-
-   text-align: center;
-
-
-   padding: 25px;
-
-
-}
-
-
-
-
-.card p {
-
-
-   margin-top: 15px;
-
-
-}
-
-
-
-
-/* ================================
-  BOTÕES
-================================ */
-
-
-
-
-.btn {
-
-
-   margin: 5px;
-
-
-   font-size: 16px;
-
-
-   font-weight: bold;
-
-
-   min-height: 48px;
-
-
-   border-radius: 10px;
-
-
-}
-
-
-
-
-button {
-
-
-   cursor: pointer;
-
-
-}
-
-
-
-
-/* ================================
-  FOOTER
-================================ */
-
-
-
-
-footer {
-
-
-   margin-top: 80px;
-
-
-}
-
-
-
-
-footer p {
-
-
-   margin-bottom: 5px;
-
-
-}
-/* ==================================
-  PORTAL INCLUSIVO
-  style.css - PARTE 2
-================================== */
-
-
-
-
-/* ================================
-  ALTO CONTRASTE
-================================ */
-
-
-
-
-.altoContraste {
-
-
-   background: #000;
-
-
-   color: #fff;
-
-
-}
-
-
-
-
-.altoContraste h1,
-.altoContraste h2,
-.altoContraste h3 {
-
-
-   color: yellow;
-
-
-}
-
-
-
-
-.altoContraste p {
-
-
-   color: white;
-
-
-}
-
-
-
-
-.altoContraste .card {
-
-
-   background: #222;
-
-
-   color: white;
-
-
-   border: 2px solid yellow;
-
-
-}
-
-
-
-
-.altoContraste .navbar {
-
-
-   background: black !important;
-
-
-}
-
-
-
-
-.altoContraste footer {
-
-
-   background: black !important;
-
-
-}
-
-
-
-
-.altoContraste .nav-link {
-
-
-   color: white !important;
-
-
-}
-
-
-
-
-.altoContraste .btn-dark {
-
-
-   border: 2px solid yellow;
-
-
-}
-
-
-
-
-.altoContraste img {
-
-
-   border: 3px solid yellow;
-
-
-}
-
-
-
-
-/* ================================
-  FOCO PARA ACESSIBILIDADE
-================================ */
-
-
-
-
-button:focus,
-a:focus {
-
-
-   outline: 4px solid orange;
-
-
-   outline-offset: 3px;
-
-
-}
-
-
-
-
-/* ================================
-  ANIMAÇÕES SUAVES
-================================ */
-
-
-
-
-button,
-a,
-.card {
-
-
-   transition: .3s ease;
-
-
-}
-
-
-
-
-/* ================================
-  RESPONSIVIDADE TABLET
-================================ */
-
-
-
-
-@media (max-width: 991px) {
-
-
-
-
-   .navbar-nav {
-
-
-       text-align: center;
-
-
-   }
-
-
-
-
-   .navbar .btn {
-
-
-       width: 100%;
-
-
-       margin-bottom: 8px;
-
-
-   }
-
-
-
-
-}
-
-
-
-
-/* ================================
-  RESPONSIVIDADE CELULAR
-================================ */
-
-
-
-
-@media (max-width: 768px) {
-
-
-
-
-   body {
-
-
-       font-size: 17px;
-
-
-   }
-
-
-
-
-   h1 {
-
-
-       font-size: 2rem;
-
-
-   }
-
-
-
-
-   h2 {
-
-
-       font-size: 1.7rem;
-
-
-   }
-
-
-
-
-   h3 {
-
-
-       font-size: 1.2rem;
-
-
-   }
-
-
-
-
-   .card {
-
-
-       margin-bottom: 20px;
-
-
-   }
-
-
-
-
-}
-
-
-
-
-/* ================================
-  CELULARES PEQUENOS
-================================ */
-
-
-
-
-@media (max-width: 576px) {
-
-
-
-
-   body {
-
-
-       font-size: 16px;
-
-
-   }
-
-
-
-
-   h1 {
-
-
-       font-size: 1.8rem;
-
-
-   }
-
-
-
-
-   h2 {
-
-
-       font-size: 1.5rem;
-
-
-   }
-
-
-
-
-   .btn {
-
-
-       font-size: 15px;
-
-
-       min-height: 50px;
-
-
-   }
-
-
-
-
-}
-
-
-
-
-/* ================================
-  MELHORIA PARA LEITURA
-================================ */
-
-
-
-
-::selection {
-
-
-   background: #0d6efd;
-
-
-   color: white;
-
-
-/* ==================================
-  PORTAL INCLUSIVO
-  style.css - PARTE 1
-================================== */
-
-
-
-
-/* RESET */
-
-
-* {
-
-
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-
-
-}
-
-
-
-
-/* CONFIGURAÇÃO GERAL */
-
-
-html {
-
-
-   scroll-behavior: smooth;
-
-
-}
-
-
-
-
-bbody {
-
-
-   font-family: Arial, Helvetica, sans-serif;
-
-
-   font-size: 1rem;
-
-
-   line-height: 1.8;
-
-
-}
-
-
-
-
-/* ================================
-  NAVBAR
-================================ */
-
-
-
-
-.navbar {
-
-
-   box-shadow: 0 3px 10px rgba(0,0,0,.25);
-
-
-}
-
-
-
-
-.navbar-brand {
-
-
-   font-size: 1.6rem;
-
-
-   font-weight: bold;
-
-
-}
-
-
-
-
-.nav-link {
-
-
-   font-size: 1.05rem;
-
-
-   transition: .3s;
-
-
-}
-
-
-
-
-.nav-link:hover {
-
-
-   text-decoration: underline;
-
-
-}
-
-
-
-
-/* ================================
-  SEÇÕES
-================================ */
-
-
-
-
-section {
-
-
-   margin-top: 70px;
-
-
-   margin-bottom: 70px;
-
-
-}
-
-
-
-
-h1 {
-
-
-   color: #0d6efd;
-
-
-   font-weight: bold;
-
-
-   font-size: 2.5rem;
-
-
-   margin-bottom: 25px;
-
-
-}
-
-
-h2 {
-
-
-   color: #0d6efd;
-
-
-   font-weight: bold;
-
-
-   font-size: 2rem;
-
-
-   margin-bottom: 30px;
-
-
-}
-
-
-
-
-h3 {
-
-
-   color: #0d6efd;
-
-
-   font-size: 1.3rem;
-
-
-}
-
-
-
-
-p {
-
-
-   font-size: 1rem;
-
-
-}
-
-
-
-
-/* ================================
-  IMAGEM
-================================ */
-
-
-
-
-img {
-
-
-   border-radius: 15px;
-
-
-   box-shadow: 0 5px 15px rgba(0,0,0,.25);
-
-
-   max-width: 100%;
-
-
-}
-
-
-
-
-/* ================================
-  CARDS
-================================ */
-
-
-
-
-.card {
-
-
-   border: none;
-
-
-   border-radius: 18px;
-
-
-   box-shadow: 0 8px 18px rgba(0,0,0,.15);
-
-
-   transition: .3s;
-
-
-}
-
-
-
-
-.card:hover {
-
-
-   transform: translateY(-8px);
-
-
-}
-
-
-
-
-.card-body {
-
-
-   text-align: center;
-
-
-   padding: 25px;
-
-
-}
-
-
-
-
-.card p {
-
-
-   margin-top: 15px;
-
-
-}
-
-
-
-
-/* ================================
-  BOTÕES
-================================ */
-
-
-
-
-.btn {
-
-
-   margin: 5px;
-
-
-   font-size: 16px;
-
-
-   font-weight: bold;
-
-
-   min-height: 48px;
-
-
-   border-radius: 10px;
-
-
-}
-
-
-
-
-button {
-
-
-   cursor: pointer;
-
-
-}
-
-
-
-
-/* ================================
-  FOOTER
-================================ */
-
-
-
-
-footer {
-
-
-   margin-top: 80px;
-
-
-}
-
-
-
-
-footer p {
-
-
-   margin-bottom: 5px;
-
-
-}
-/* ==================================
-  PORTAL INCLUSIVO
-  style.css - PARTE 2
-================================== */
-
-
-
-
-/* ================================
-  ALTO CONTRASTE
-================================ */
-
-
-
-
-.altoContraste {
-
-
-   background: #000;
-
-
-   color: #fff;
-
-
-}
-
-
-
-
-.altoContraste h1,
-.altoContraste h2,
-.altoContraste h3 {
-
-
-   color: yellow;
-
-
-}
-
-
-
-
-.altoContraste p {
-
-
-   color: white;
-
-
-}
-
-
-
-
-.altoContraste .card {
-
-
-   background: #222;
-
-
-   color: white;
-
-
-   border: 2px solid yellow;
-
-
 }
-
-
-
-
-.altoContraste .navbar {
 
 
-   background: black !important;
+function diminuirFonte() {
 
+    if (tamanhoFonte > 70) {
+        tamanhoFonte -= 10;
+        document.documentElement.style.fontSize = tamanhoFonte + "%";
+    }
 
 }
 
 
+/* =========================================
+   ALTO CONTRASTE
+========================================= */
 
+function altoContraste() {
 
-.altoContraste footer {
+    document.body.classList.toggle("alto-contraste");
 
-
-   background: black !important;
-
-
 }
 
 
+/* =========================================
+   LEITURA DA PÁGINA
+========================================= */
 
+function lerPagina() {
 
-.altoContraste .nav-link {
+    // Verifica se o navegador suporta leitura
+    if (!("speechSynthesis" in window)) {
 
+        alert(
+            "Seu navegador não suporta a função de leitura de texto."
+        );
 
-   color: white !important;
+        return;
+    }
 
+    // Para qualquer leitura anterior
+    window.speechSynthesis.cancel();
 
-}
+    // Pega somente o conteúdo principal
+    const conteudo = document.querySelector("main");
 
+    if (!conteudo) {
+        return;
+    }
 
+    // Obtém o texto da página
+    const texto = conteudo.innerText;
 
+    // Cria a fala
+    const fala = new SpeechSynthesisUtterance(texto);
 
-.altoContraste .btn-dark {
+    // Configura idioma
+    fala.lang = "pt-BR";
 
+    // Velocidade da leitura
+    fala.rate = 0.9;
 
-   border: 2px solid yellow;
+    // Tom da voz
+    fala.pitch = 1;
 
+    // Volume
+    fala.volume = 1;
 
+    // Inicia leitura
+    window.speechSynthesis.speak(fala);
 }
 
 
+/* =========================================
+   PARAR LEITURA
+========================================= */
 
+function pararLeitura() {
 
-.altoContraste img {
+    if ("speechSynthesis" in window) {
 
+        window.speechSynthesis.cancel();
 
-   border: 3px solid yellow;
+    }
 
-
 }
 
 
+/* =========================================
+   FLASHCARDS
+========================================= */
 
+document.addEventListener("DOMContentLoaded", function () {
 
-/* ================================
-  FOCO PARA ACESSIBILIDADE
-================================ */
+    const flashcards = document.querySelectorAll(
+        "#atividades .card"
+    );
 
+    flashcards.forEach(function (card) {
 
+        card.style.cursor = "pointer";
 
+        card.setAttribute(
+            "tabindex",
+            "0"
+        );
 
-button:focus,
-a:focus {
+        card.setAttribute(
+            "role",
+            "button"
+        );
 
+        card.addEventListener("click", function () {
 
-   outline: 4px solid orange;
+            mostrarResposta(card);
 
+        });
 
-   outline-offset: 3px;
 
+        // Permite usar os flashcards pelo teclado
+        card.addEventListener("keydown", function (event) {
 
-}
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
 
+                event.preventDefault();
 
+                mostrarResposta(card);
 
+            }
 
-/* ================================
-  ANIMAÇÕES SUAVES
-================================ */
+        });
 
+    });
 
+});
 
 
-button,
-a,
-.card {
+/* =========================================
+   RESPOSTAS DOS FLASHCARDS
+========================================= */
 
+function mostrarResposta(card) {
 
-   transition: .3s ease;
+    const pergunta = card.querySelector("p");
 
+    if (!pergunta) {
+        return;
+    }
 
-}
+    // Verifica se já existe uma resposta
+    let resposta = card.querySelector(".resposta-flashcard");
 
+    if (resposta) {
 
+        resposta.remove();
 
+        card.classList.remove("flashcard-aberto");
 
-/* ================================
-  RESPONSIVIDADE TABLET
-================================ */
+        return;
+    }
 
 
+    // Identifica qual flashcard foi selecionado
+    const titulo = card.querySelector("h3");
 
+    if (!titulo) {
+        return;
+    }
 
-@media (max-width: 991px) {
 
+    let textoResposta = "";
 
 
+    if (titulo.innerText.includes("1")) {
 
-   .navbar-nav {
+        textoResposta =
+            "Um sensor é um dispositivo capaz de detectar informações do ambiente, como luz, temperatura, distância ou obstáculos.";
 
+    }
 
-       text-align: center;
+    else if (titulo.innerText.includes("2")) {
 
+        textoResposta =
+            "Energia elétrica é a energia associada ao movimento das cargas elétricas. Ela é utilizada para alimentar diversos equipamentos.";
 
-   }
+    }
 
+    else if (titulo.innerText.includes("3")) {
 
+        textoResposta =
+            "O Arduino é uma plataforma eletrônica utilizada para criar e programar projetos, principalmente em automação e robótica.";
 
+    }
 
-   .navbar .btn {
+    else if (titulo.innerText.includes("4")) {
 
+        textoResposta =
+            "Um motor elétrico transforma energia elétrica em energia mecânica, produzindo movimento.";
 
-       width: 100%;
+    }
 
 
-       margin-bottom: 8px;
+    // Cria o elemento da resposta
+    resposta = document.createElement("div");
 
+    resposta.className =
+        "resposta-flashcard mt-3 p-3 rounded";
 
-   }
+    resposta.innerHTML =
+        "<strong>Resposta:</strong> " + textoResposta;
 
 
+    // Adiciona a resposta
+    card.querySelector(".card-body").appendChild(
+        resposta
+    );
 
+    card.classList.add("flashcard-aberto");
 
 }
-
-
-
-
-/* ================================
-  RESPONSIVIDADE CELULAR
-================================ */
-
-
-
-
-@media (max-width: 768px) {
-
-
-
-
-   body {
-
-
-       font-size: 17px;
-
-
-   }
-
 
 
+/* =========================================
+   VOLTAR AO TOPO
+========================================= */
 
-   h1 {
+function voltarAoTopo() {
 
+    window.scrollTo({
 
-       font-size: 2rem;
+        top: 0,
 
+        behavior: "smooth"
 
-   }
+    });
 
-
-
-
-   h2 {
-
-
-       font-size: 1.7rem;
-
-
-   }
-
-
-
-
-   h3 {
-
-
-       font-size: 1.2rem;
-
-
-   }
-
-
-
-
-   .card {
-
-
-       margin-bottom: 20px;
-
-
-   }
-
-
-
-
 }
-
-
-
-
-/* ================================
-  CELULARES PEQUENOS
-================================ */
-
 
 
+/* =========================================
+   ATALHOS DE TECLADO
+========================================= */
 
-@media (max-width: 576px) {
+document.addEventListener("keydown", function (event) {
 
+    // Alt + A = aumentar fonte
+    if (event.altKey && event.key.toLowerCase() === "a") {
 
+        event.preventDefault();
 
+        aumentarFonte();
 
-   body {
+    }
 
 
-       font-size: 16px;
+    // Alt + D = diminuir fonte
+    if (event.altKey && event.key.toLowerCase() === "d") {
 
+        event.preventDefault();
 
-   }
+        diminuirFonte();
 
+    }
 
 
+    // Alt + C = alto contraste
+    if (event.altKey && event.key.toLowerCase() === "c") {
 
-   h1 {
+        event.preventDefault();
 
+        altoContraste();
 
-       font-size: 1.8rem;
+    }
 
 
-   }
+    // Escape = parar leitura
+    if (event.key === "Escape") {
 
+        pararLeitura();
 
+    }
 
-
-   h2 {
-
-
-       font-size: 1.5rem;
-
-
-   }
-
-
-
-
-   .btn {
-
-
-       font-size: 15px;
-
-
-       min-height: 50px;
-
-
-   }
-
-
-
-
 }
-
-
-
-
-/* ================================
-  MELHORIA PARA LEITURA
-================================ */
-
-
-
-
-::selection {
-
-
-   background: #0d6efd;
-
-
-   color: white;
-
-
