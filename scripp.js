@@ -1,282 +1,260 @@
-```javascript
-// ==========================================
-// PORTAL INCLUSIVO - SCRIPT.JS
-// ==========================================
-
-
-// ==========================================
-// AUMENTAR FONTE
-// ==========================================
+// =====================================
+// ACESSIBILIDADE
+// =====================================
 
 let tamanhoFonte = 100;
+let leituraAtual = null;
+
+
+// =====================================
+// AUMENTAR FONTE
+// =====================================
 
 function aumentarFonte() {
 
     if (tamanhoFonte < 160) {
-
         tamanhoFonte += 10;
-
-        document.documentElement.style.fontSize =
-            tamanhoFonte + "%";
+        aplicarTamanhoFonte();
     }
+
 }
 
 
-// ==========================================
+// =====================================
 // DIMINUIR FONTE
-// ==========================================
+// =====================================
 
 function diminuirFonte() {
 
     if (tamanhoFonte > 70) {
-
         tamanhoFonte -= 10;
-
-        document.documentElement.style.fontSize =
-            tamanhoFonte + "%";
+        aplicarTamanhoFonte();
     }
+
 }
 
 
-// ==========================================
+// =====================================
+// APLICAR TAMANHO DA FONTE
+// =====================================
+
+function aplicarTamanhoFonte() {
+
+    document.documentElement.style.fontSize = tamanhoFonte + "%";
+
+    localStorage.setItem("tamanhoFonte", tamanhoFonte);
+
+}
+
+
+// =====================================
 // ALTO CONTRASTE
-// ==========================================
+// =====================================
 
 function altoContraste() {
 
     document.body.classList.toggle("alto-contraste");
+
+    salvarConfiguracoes();
+
 }
 
 
-// ==========================================
-// LER PÁGINA
-// ==========================================
+// =====================================
+// ESCALA DE CINZA
+// =====================================
+
+function escalaCinza() {
+
+    document.body.classList.toggle("escala-cinza");
+
+    salvarConfiguracoes();
+
+}
+
+
+// =====================================
+// DESTACAR LINKS
+// =====================================
+
+function destacarLinks() {
+
+    document.body.classList.toggle("destacar-links");
+
+    salvarConfiguracoes();
+
+}
+
+
+// =====================================
+// ESPAÇAMENTO ENTRE TEXTOS
+// =====================================
+
+function aumentarEspacamento() {
+
+    document.body.classList.toggle("espacamento-texto");
+
+    salvarConfiguracoes();
+
+}
+
+
+// =====================================
+// LEITURA DA PÁGINA
+// =====================================
 
 function lerPagina() {
 
-    // Verifica se o navegador suporta leitura
+    pararLeitura();
+
     if (!("speechSynthesis" in window)) {
 
-        alert(
-            "Seu navegador não suporta a função de leitura."
-        );
+        alert("Seu navegador não possui suporte à leitura de texto.");
 
         return;
+
     }
 
-    // Para uma leitura anterior
-    window.speechSynthesis.cancel();
+    const texto = document.querySelector("main").innerText;
 
-    // Seleciona o conteúdo principal
-    const conteudo = document.querySelector("main");
+    leituraAtual = new SpeechSynthesisUtterance(texto);
 
-    if (!conteudo) {
+    leituraAtual.lang = "pt-BR";
+    leituraAtual.rate = 0.9;
+    leituraAtual.pitch = 1;
+    leituraAtual.volume = 1;
 
-        alert("Não foi possível encontrar o conteúdo da página.");
+    speechSynthesis.speak(leituraAtual);
 
-        return;
-    }
-
-    // Pega o texto
-    const texto = conteudo.innerText;
-
-    // Cria a fala
-    const fala = new SpeechSynthesisUtterance(texto);
-
-    // Configurações
-    fala.lang = "pt-BR";
-    fala.rate = 0.9;
-    fala.pitch = 1;
-    fala.volume = 1;
-
-    // Começa a leitura
-    window.speechSynthesis.speak(fala);
 }
 
 
-// ==========================================
+// =====================================
 // PARAR LEITURA
-// ==========================================
+// =====================================
 
 function pararLeitura() {
 
     if ("speechSynthesis" in window) {
 
-        window.speechSynthesis.cancel();
+        speechSynthesis.cancel();
+
     }
+
 }
 
 
-// ==========================================
+// =====================================
 // FLASHCARDS
-// ==========================================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const flashcards =
-        document.querySelectorAll("#atividades .card");
-
-    flashcards.forEach(function (card) {
-
-        card.style.cursor = "pointer";
-
-        card.setAttribute("tabindex", "0");
-
-        card.addEventListener("click", function () {
-
-            mostrarResposta(card);
-
-        });
-
-        // Permite abrir com Enter ou Espaço
-        card.addEventListener("keydown", function (event) {
-
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
-
-                event.preventDefault();
-
-                mostrarResposta(card);
-            }
-
-        });
-
-    });
-
-});
-
-
-// ==========================================
-// MOSTRAR RESPOSTA DO FLASHCARD
-// ==========================================
+// =====================================
 
 function mostrarResposta(card) {
 
-    let resposta =
-        card.querySelector(".resposta-flashcard");
+    const resposta = card.querySelector(".resposta-flashcard");
 
-    // Se já existe, remove
     if (resposta) {
 
-        resposta.remove();
+        resposta.classList.toggle("mostrar");
 
-        card.classList.remove("flashcard-aberto");
-
-        return;
     }
 
-    const titulo =
-        card.querySelector("h3");
-
-    if (!titulo) {
-        return;
-    }
-
-    let textoResposta = "";
-
-    // Flashcard 1
-    if (titulo.textContent.includes("1")) {
-
-        textoResposta =
-            "Um sensor é um dispositivo capaz de detectar informações do ambiente, como luz, temperatura, distância e obstáculos.";
-    }
-
-    // Flashcard 2
-    else if (titulo.textContent.includes("2")) {
-
-        textoResposta =
-            "Energia elétrica é a energia relacionada ao movimento das cargas elétricas e é utilizada para alimentar equipamentos.";
-    }
-
-    // Flashcard 3
-    else if (titulo.textContent.includes("3")) {
-
-        textoResposta =
-            "O Arduino é uma plataforma eletrônica utilizada para criar e programar projetos de automação e robótica.";
-    }
-
-    // Flashcard 4
-    else if (titulo.textContent.includes("4")) {
-
-        textoResposta =
-            "Um motor elétrico transforma energia elétrica em energia mecânica, produzindo movimento.";
-    }
-
-    // Cria a resposta
-    resposta = document.createElement("div");
-
-    resposta.className =
-        "resposta-flashcard mt-3 p-3 rounded";
-
-    resposta.innerHTML =
-        "<strong>Resposta:</strong> " +
-        textoResposta;
-
-    // Coloca a resposta dentro do card
-    const corpo =
-        card.querySelector(".card-body");
-
-    if (corpo) {
-
-        corpo.appendChild(resposta);
-
-    } else {
-
-        card.appendChild(resposta);
-    }
-
-    card.classList.add("flashcard-aberto");
 }
 
 
-// ==========================================
-// ATALHOS DO TECLADO
-// ==========================================
+// =====================================
+// RESTAURAR CONFIGURAÇÕES
+// =====================================
 
-document.addEventListener("keydown", function (event) {
+function restaurarAcessibilidade() {
 
-    // Alt + A = aumentar fonte
-    if (
-        event.altKey &&
-        event.key.toLowerCase() === "a"
-    ) {
+    tamanhoFonte = 100;
 
-        event.preventDefault();
+    document.documentElement.style.fontSize = "100%";
 
-        aumentarFonte();
+    document.body.classList.remove(
+        "alto-contraste",
+        "escala-cinza",
+        "destacar-links",
+        "espacamento-texto"
+    );
+
+    localStorage.removeItem("tamanhoFonte");
+    localStorage.removeItem("altoContraste");
+    localStorage.removeItem("escalaCinza");
+    localStorage.removeItem("destacarLinks");
+    localStorage.removeItem("espacamentoTexto");
+
+}
+
+
+// =====================================
+// SALVAR CONFIGURAÇÕES
+// =====================================
+
+function salvarConfiguracoes() {
+
+    localStorage.setItem(
+        "altoContraste",
+        document.body.classList.contains("alto-contraste")
+    );
+
+    localStorage.setItem(
+        "escalaCinza",
+        document.body.classList.contains("escala-cinza")
+    );
+
+    localStorage.setItem(
+        "destacarLinks",
+        document.body.classList.contains("destacar-links")
+    );
+
+    localStorage.setItem(
+        "espacamentoTexto",
+        document.body.classList.contains("espacamento-texto")
+    );
+
+}
+
+
+// =====================================
+// CARREGAR CONFIGURAÇÕES
+// =====================================
+
+function carregarConfiguracoes() {
+
+    const fonteSalva = localStorage.getItem("tamanhoFonte");
+
+    if (fonteSalva) {
+
+        tamanhoFonte = Number(fonteSalva);
+
+        document.documentElement.style.fontSize =
+            tamanhoFonte + "%";
+
     }
 
 
-    // Alt + D = diminuir fonte
-    if (
-        event.altKey &&
-        event.key.toLowerCase() === "d"
-    ) {
-
-        event.preventDefault();
-
-        diminuirFonte();
+    if (localStorage.getItem("altoContraste") === "true") {
+        document.body.classList.add("alto-contraste");
     }
 
 
-    // Alt + C = alto contraste
-    if (
-        event.altKey &&
-        event.key.toLowerCase() === "c"
-    ) {
-
-        event.preventDefault();
-
-        altoContraste();
+    if (localStorage.getItem("escalaCinza") === "true") {
+        document.body.classList.add("escala-cinza");
     }
 
 
-    // ESC = parar leitura
-    if (event.key === "Escape") {
-
-        pararLeitura();
+    if (localStorage.getItem("destacarLinks") === "true") {
+        document.body.classList.add("destacar-links");
     }
 
-});
+
+    if (localStorage.getItem("espacamentoTexto") === "true") {
+        document.body.classList.add("espacamento-texto");
+    }
+
+}
+
+
+// Executar quando a página carregar
+document.addEventListener("DOMContentLoaded", carregarConfiguracoes);
