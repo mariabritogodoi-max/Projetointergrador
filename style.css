@@ -1,7 +1,12 @@
-```css
-/* =========================================
+
+/* ==========================================
+   PORTAL INCLUSIVO - STYLE.CSS
+========================================== */
+
+
+/* ==========================================
    CONFIGURAÇÕES GERAIS
-========================================= */
+========================================== */
 
 html {
     scroll-behavior: smooth;
@@ -17,9 +22,9 @@ body {
 }
 
 
-/* =========================================
+/* ==========================================
    CABEÇALHO
-========================================= */
+========================================== */
 
 .navbar {
     padding: 12px 0;
@@ -27,6 +32,7 @@ body {
 
 .navbar-brand {
     font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .nav-link {
@@ -34,9 +40,9 @@ body {
 }
 
 
-/* =========================================
-   CONTEÚDO PRINCIPAL
-========================================= */
+/* ==========================================
+   CONTEÚDO
+========================================== */
 
 main {
     min-height: 70vh;
@@ -47,24 +53,25 @@ section {
 }
 
 h1 {
-    font-weight: bold;
     color: #0d6efd;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
 h2 {
-    font-weight: bold;
     color: #0d6efd;
+    font-weight: bold;
 }
 
 h3 {
     font-weight: bold;
+    color: #0d6efd;
 }
 
 
-/* =========================================
+/* ==========================================
    IMAGEM PRINCIPAL
-========================================= */
+========================================== */
 
 #inicio img {
     display: block;
@@ -74,9 +81,9 @@ h3 {
 }
 
 
-/* =========================================
+/* ==========================================
    CARDS
-========================================= */
+========================================== */
 
 .card {
     height: 100%;
@@ -95,7 +102,6 @@ h3 {
 }
 
 .card h3 {
-    color: #0d6efd;
     margin-bottom: 15px;
 }
 
@@ -104,9 +110,34 @@ h3 {
 }
 
 
-/* =========================================
+/* ==========================================
+   FLASHCARDS
+========================================== */
+
+#atividades .card {
+    cursor: pointer;
+}
+
+#atividades .card:focus {
+    outline: 4px solid #ff00ff;
+    outline-offset: 3px;
+}
+
+.flashcard-aberto {
+    border-color: #198754 !important;
+}
+
+.resposta-flashcard {
+    background-color: #e9f7ef;
+    color: #14532d;
+    border-left: 5px solid #198754;
+    font-size: 1rem;
+}
+
+
+/* ==========================================
    BOTÕES DE ACESSIBILIDADE
-========================================= */
+========================================== */
 
 button {
     font-weight: bold;
@@ -116,10 +147,105 @@ button {
     border: 2px solid transparent;
 }
 
+button:focus {
+    outline: 3px solid #ff00ff;
+    outline-offset: 3px;
+}
 
-/* =========================================
+
+/* ==========================================
+   ALTO CONTRASTE
+========================================== */
+
+body.alto-contraste {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+
+/* Conteúdo */
+
+.alto-contraste main,
+.alto-contraste section {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+
+/* Títulos */
+
+.alto-contraste h1,
+.alto-contraste h2,
+.alto-contraste h3 {
+    color: #ffff00 !important;
+}
+
+
+/* Texto */
+
+.alto-contraste p {
+    color: #ffffff !important;
+}
+
+
+/* Cards */
+
+.alto-contraste .card {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.alto-contraste .card-body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+
+/* Resposta dos flashcards */
+
+.alto-contraste .resposta-flashcard {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+    border: 2px solid #ffff00 !important;
+}
+
+
+/* Links */
+
+.alto-contraste a {
+    color: #ffff00 !important;
+}
+
+
+/* Rodapé */
+
+.alto-contraste footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-top: 3px solid #ffffff;
+}
+
+.alto-contraste footer h3,
+.alto-contraste footer p {
+    color: #ffffff !important;
+}
+
+
+/* ==========================================
+   ACESSIBILIDADE PELO TECLADO
+========================================== */
+
+a:focus,
+button:focus {
+    outline: 3px solid #ff00ff;
+    outline-offset: 3px;
+}
+
+
+/* ==========================================
    RODAPÉ
-========================================= */
+========================================== */
 
 footer {
     margin-top: 50px;
@@ -134,77 +260,9 @@ footer p {
 }
 
 
-/* =========================================
-   ALTO CONTRASTE
-========================================= */
-
-.alto-contraste {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-.alto-contraste main {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-.alto-contraste section {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-.alto-contraste .card {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border: 2px solid #ffffff !important;
-}
-
-.alto-contraste .card-body {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-.alto-contraste h1,
-.alto-contraste h2,
-.alto-contraste h3,
-.alto-contraste p {
-    color: #ffffff !important;
-}
-
-.alto-contraste .lead {
-    color: #ffffff !important;
-}
-
-.alto-contraste a {
-    color: #ffff00 !important;
-}
-
-.alto-contraste footer {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border-top: 2px solid #ffffff;
-}
-
-.alto-contraste footer h3,
-.alto-contraste footer p {
-    color: #ffffff !important;
-}
-
-
-/* =========================================
-   ACESSIBILIDADE PELO TECLADO
-========================================= */
-
-a:focus,
-button:focus {
-    outline: 3px solid #ff00ff;
-    outline-offset: 3px;
-}
-
-
-/* =========================================
+/* ==========================================
    RESPONSIVIDADE
-========================================= */
+========================================== */
 
 @media (max-width: 991px) {
 
@@ -219,8 +277,11 @@ button:focus {
     .navbar-nav button {
         width: 100%;
     }
+
 }
 
+
+/* Tablets */
 
 @media (max-width: 768px) {
 
@@ -239,8 +300,11 @@ button:focus {
     .card-body {
         padding: 20px;
     }
+
 }
 
+
+/* Celulares */
 
 @media (max-width: 576px) {
 
@@ -259,12 +323,13 @@ button:focus {
     #inicio img {
         max-height: 250px;
     }
+
 }
 
 
-/* =========================================
-   ANIMAÇÃO SUAVE DOS CARDS
-========================================= */
+/* ==========================================
+   ANIMAÇÃO DOS CARDS
+========================================== */
 
 .card {
     animation: aparecer 0.5s ease-in-out;
@@ -281,4 +346,5 @@ button:focus {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
